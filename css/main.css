@@ -2370,10 +2370,12 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #logo {
-  padding-left: 15px;
   position:fixed;
   size:50%;
   left:5%;
+  border:solid 1px black;
+  opacity: 0.9;
+  box-shadow: 0px 0px 10px black;
 }
 
 #nav-menu-container {
