@@ -2370,11 +2370,8 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #logo {
-  position:absolute;
-  left:5px;
-  top:5px;
-  width:100px;
-  height:50px;
+  padding-left: 15px;
+  size:50%;
 }
 
 #nav-menu-container {
