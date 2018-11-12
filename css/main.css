@@ -2371,6 +2371,9 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 #logo {
   padding-left: 15px;
+  position:fixed;
+  size:50%;
+  left:5%;
 }
 
 #nav-menu-container {
