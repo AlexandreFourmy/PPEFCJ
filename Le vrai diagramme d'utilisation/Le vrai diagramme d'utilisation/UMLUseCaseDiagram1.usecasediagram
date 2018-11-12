@@ -1,0 +1,312 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="999dc5f1-7321-4ee1-8ddb-06ca24a53647" name="UMLUseCaseDiagram1" linkedPackageId="374ff93e-6622-4156-9cab-274693584cb1" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+  <ownedCommentsInternal>
+    <comment Id="cd8fc1c5-1833-4b01-bbdb-fe134bae78b5">
+      <elementDefinition Id="c3d46b6e-1dd8-4b62-8a60-d7b0d0f34702" />
+      <body>Scripts modifs ou ajout liaisons BDD
+</body>
+      <annotatedElements>
+        <useCaseMoniker Id="cebf60b5-bdc3-4827-ad1e-7dec48c61fe4" LastKnownName="Ajout ou modification d'une liaison, ouvre une fenêtre au dessus de consultation Liaison" />
+      </annotatedElements>
+    </comment>
+    <comment Id="ebde823a-7054-4cac-bc3a-09cce965a534">
+      <elementDefinition Id="e697e510-1691-4353-a222-23a5ab334103" />
+      <body>Si utilisateur est gestionnaire</body>
+    </comment>
+    <comment Id="02805b9a-f192-4cb1-9ce6-0654cf65e20a">
+      <elementDefinition Id="14d08111-f5fa-4f53-a641-be45377434f7" />
+      <body>Si utilisateur est gestionnaire</body>
+    </comment>
+  </ownedCommentsInternal>
+  <packagedElements>
+    <useCaseModelRootHasTypes>
+      <useCase Id="f92a618c-ee14-40f4-a8dd-def40611937f" name="Se déconnecter" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="d7038173-40cb-4665-b088-9c44cedb9cec" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="7398ad8a-499a-4ad7-ba78-1c090a31772b" name="Consultation Liaison" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="77e0067b-5299-43b5-8033-e2df3f9a01c9" />
+        <targetEnds>
+          <association Id="8823d312-08e9-40f4-bdbb-105a93d95d5b" isDerived="false" sourceEndRoleName="Consultation Liaison" targetEndRoleName="Se déconnecter" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="f92a618c-ee14-40f4-a8dd-def40611937f" LastKnownName="Se déconnecter" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="632a2f39-f7e8-4a8c-a9e5-135de877f3a4" name="Consultation Liaison" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="b41b660a-02c9-48a9-a959-fd79e293d0a4" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="f7f9044b-3aa1-4cd5-a03b-fd57c9cf2985" name="Se déconnecter" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="854ef607-b3c1-4e80-9a44-df964d96a1f5" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="e9579fc7-d712-486c-b99c-e85c9614f26b" />
+          </association>
+          <association Id="f87e8796-9cff-4539-af18-a7a397cbe116" isDerived="false" sourceEndRoleName="Consultation Liaison" targetEndRoleName="Consultation des horaires de la liaison séléctionnée + séléction horaire" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="c90bf391-5520-4043-8c08-6b36ad433723" LastKnownName="Consultation des horaires de la liaison séléctionnée + séléction horaire" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="79e32a15-6f2d-43d2-883e-f44cd63de888" name="Consultation Liaison" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="739e8658-d3ee-42d2-8f88-41df937106b5" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="36b1d79d-499b-405e-bc7e-6db7f18b157d" name="Consultation des horaires de la liaison séléctionnée + séléction horaire" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="ca66c2c9-a731-4903-8c7d-9ba7dc7698b9" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="c08ac940-abb8-4f84-ba27-ca7bdd5fb393" />
+          </association>
+          <association Id="138079b2-99a7-4d91-8c02-07ee5e479643" isDerived="false" sourceEndRoleName="Consultation Liaison" targetEndRoleName="Ajout ou modification d'une liaison, ouvre une fenêtre au dessus de consultation Liaison" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="cebf60b5-bdc3-4827-ad1e-7dec48c61fe4" LastKnownName="Ajout ou modification d'une liaison, ouvre une fenêtre au dessus de consultation Liaison" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="abb55e2b-17dd-4810-9eab-3a0c9ecc00cc" name="Consultation Liaison" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="0b3cbdaf-4b05-4130-b7a1-15a5110a4d89" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="da0c18e4-b238-41ba-a9af-e4f68b43e2f4" name="Ajout ou modification d'une liaison, ouvre une fenêtre au dessus de consultation Liaison" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="26fcf923-e62a-42ba-bf1d-9befab13eed8" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="e420ba19-0281-4c79-ad59-71245c04c33f" />
+          </association>
+        </targetEnds>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="cfa021ab-53ea-4db9-b557-5cf135f87722" name="Consultation des tarifs de la liaison séléctionnée" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="d5bd897a-376c-49fd-8e43-41e01a982858" />
+        <targetEnds>
+          <association Id="ab3178b7-a69e-4386-9b7e-f2b9db58585c" isDerived="false" sourceEndRoleName="Consultation des tarifs et horaires de la liaison sélécionnée" targetEndRoleName="Se déconnecter" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="f92a618c-ee14-40f4-a8dd-def40611937f" LastKnownName="Se déconnecter" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="5e685673-0651-4bd0-894d-8f5326d77c7c" name="Consultation des tarifs et horaires de la liaison sélécionnée" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="2c7cd867-99c4-440e-8a0c-f231e291f0a9" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="57c5f127-689c-471a-ae08-69b0af8b841e" name="Se déconnecter" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="e67fa10c-0f30-4149-a17f-210f17a8cade" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="adccc443-aa07-4803-b7f0-f361eeb2b28b" />
+          </association>
+          <association Id="75614a1a-9db2-4cc6-a8ef-64ad2a0e2fd4" isDerived="false" sourceEndRoleName="Consultation des tarifs et horaires de la liaison sélécionnée" targetEndRoleName="Réservation" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="1c0b4b29-089b-4d0b-a2a2-9856a27cd9e2" LastKnownName="Réservation" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="fa7eeef5-ebb6-437a-baa5-382d2bc935ad" name="Consultation des tarifs et horaires de la liaison sélécionnée" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="a192fcdd-2754-4dee-b1e4-8e7e215012d3" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="6f9c8152-0504-4898-8a43-cc1ff84011a3" name="Réservation" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="c8db4d30-2577-4d5b-8c53-2cdf0323eb05" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="8ce3468e-be85-4278-a290-364f0c051660" />
+          </association>
+        </targetEnds>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="6577c8d9-3df8-4b84-8a30-e0779681b95b" name="Utilisateur" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="3f138b79-1612-403a-8ba8-4b4de0bf26c8" />
+        <targetEnds>
+          <association Id="8908441c-cc17-49ef-a6e8-9b98527a2293" isDerived="false" sourceEndRoleName="Client" targetEndRoleName="Consultation Liaison" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="7398ad8a-499a-4ad7-ba78-1c090a31772b" LastKnownName="Consultation Liaison" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="b1bea227-309e-4127-aec5-833c9a31744a" name="Client" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="422fb505-d983-43fe-b099-a52cd3170f95" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="5845f700-ab73-487f-8881-5a2eeea727a9" name="Consultation Liaison" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="360d3881-738d-479a-9724-fa7e2c367688" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="d63d7d62-3b98-4a20-877a-180f4e298789" />
+          </association>
+          <association Id="5526d4a2-66b4-464c-9694-6aeebf2e6945" isDerived="false" sourceEndRoleName="Utilisateur" targetEndRoleName="Consultation Statistiques" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="f32cb9c8-a6b5-4838-9849-b66e960327f1" LastKnownName="Consultation Statistiques" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="84dc7f51-3548-4aa6-a0e1-7b8e195b32bb" name="Utilisateur" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="45c56871-338a-4b18-a032-1e1074e38002" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="cccaa2a5-0f29-448f-b428-d5c3c10825c3" name="Consultation Statistiques" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="cf4316a6-afb1-43d1-8b37-f4b0effcd34c" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="7a2d9c03-46c4-4979-a0e1-3ab9378de1d3" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="1c0b4b29-089b-4d0b-a2a2-9856a27cd9e2" name="Réservation" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="0bd8fb52-4707-434a-94e3-96b511fb9e57" />
+        <targetEnds>
+          <association Id="4844da3a-c77b-41be-a590-c160d5053f4a" isDerived="false" sourceEndRoleName="Réservation" targetEndRoleName="Se déconnecter" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="f92a618c-ee14-40f4-a8dd-def40611937f" LastKnownName="Se déconnecter" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="358121b6-4659-48ea-a36a-b282ae3ff371" name="Réservation" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="ebf44c98-48dc-4fae-ac41-5fc8d300ad6d" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="8e25cb5e-eab0-4a72-91a3-e38ea0b80e54" name="Se déconnecter" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="3cc462a9-a7a6-4a1b-8eed-091d6190656a" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="85e4e057-91b1-4a8a-9453-e99697aa56b5" />
+          </association>
+          <association Id="9ea01d20-3c0a-4cc6-8850-71547c126ee4" isDerived="false" sourceEndRoleName="Réservation" targetEndRoleName="Ecran de paiement" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="ba19708d-dbed-4441-8417-6c40f5f6c200" LastKnownName="Page de paiement avec récapitulatif" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="17e7b126-db3a-4b3d-936c-71ed4aaa3e36" name="Réservation" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="2b9ac41c-8064-426e-8ae8-a9d0dc7fc8f2" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="cf218772-d130-4ded-88e2-892d25a85b8e" name="Ecran de paiement" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="35253e88-7041-4077-b34a-6435275c3892" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="51c6b6cd-ee33-4d3b-8c84-65446a1ced90" />
+          </association>
+        </targetEnds>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="ba19708d-dbed-4441-8417-6c40f5f6c200" name="Page de paiement avec récapitulatif" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="8f129512-21d7-421f-a721-2bdb28f17605" />
+        <targetEnds>
+          <association Id="3fd7f201-8d0d-4ed4-872a-42cf630db40e" isDerived="false" sourceEndRoleName="Ecran de paiement" targetEndRoleName="Se déconnecter" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="f92a618c-ee14-40f4-a8dd-def40611937f" LastKnownName="Se déconnecter" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="65c93927-ca9d-4c23-9775-2d05e72416bf" name="Ecran de paiement" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="8fa720e4-f78f-45d6-8442-b3a25b0c6225" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="8a85e099-115d-424c-a543-c9d6b1bdb2a6" name="Se déconnecter" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="0b50b6ac-c965-40e2-bc73-bc36a86d0778" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="705095e8-eb3b-47b0-ba97-dcf2561ae803" />
+          </association>
+          <association Id="e2cc77f0-56a2-4489-b4f1-024da7e896a4" isDerived="false" sourceEndRoleName="Page de paiement" targetEndRoleName="Succès réservation, lien retour vers Liaisons" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="60ddc0e4-b129-43ca-b6bc-2ad17eb134dc" LastKnownName="Succès réservation, lien retour vers Liaisons" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="30ac7b55-de73-4207-869d-500e422ce576" name="Page de paiement" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="6de2a27c-93bd-4ac6-a608-093597171c00" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="70116087-95b3-4c56-a2ee-59405062913d" name="Succès réservation, lien retour vers Liaisons" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="58977926-8371-43f2-bccc-2c02e237efb3" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="4e32c5f7-0698-4a5e-b71b-f0141e4f7255" />
+          </association>
+        </targetEnds>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="60ddc0e4-b129-43ca-b6bc-2ad17eb134dc" name="Succès réservation, lien retour vers Liaisons" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="fc0580bc-8ed6-4d9a-a1bc-061de1fb7f1b" />
+        <targetEnds>
+          <association Id="2ec9159a-dbf4-4c8e-ab87-f42fc2026773" isDerived="false" sourceEndRoleName="Succès réservation, lien retour vers Liaisons" targetEndRoleName="Consultation Liaison" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="7398ad8a-499a-4ad7-ba78-1c090a31772b" LastKnownName="Consultation Liaison" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="a5a490f2-5f87-4573-9bb8-50cef012d9b5" name="Succès réservation, lien retour vers Liaisons" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="c605b3d6-5d2d-4e01-8efd-2aca6492a67b" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="0734d8b1-befd-4b3b-b07c-f064810be630" name="Consultation Liaison" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="9a8d2511-bc7d-4c3f-8e4a-da665914ffd9" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="5eff5ed0-65a3-4e8c-8f9f-d580274cdab6" />
+          </association>
+        </targetEnds>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="cebf60b5-bdc3-4827-ad1e-7dec48c61fe4" name="Ajout ou modification d'une liaison, ouvre une fenêtre au dessus de consultation Liaison" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="a8b1100b-19c6-4c55-a623-2bcd523953c4" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="f32cb9c8-a6b5-4838-9849-b66e960327f1" name="Consultation Statistiques" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="193f6e97-6e8d-4d82-850e-f64551bb5e71" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="c90bf391-5520-4043-8c08-6b36ad433723" name="Consultation des horaires de la liaison séléctionnée + séléction horaire" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="2852c107-57e2-4c63-8b91-fa3e37996add" />
+        <targetEnds>
+          <association Id="d9d1daca-5fcc-497f-b77f-0b08979a4bd3" isDerived="false" sourceEndRoleName="Consultation des horaires de la liaison séléctionnée" targetEndRoleName="Consultation des tarifs de la liaison séléctionnée" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="cfa021ab-53ea-4db9-b557-5cf135f87722" LastKnownName="Consultation des tarifs de la liaison séléctionnée" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="e14c8561-69c2-4ca5-a5c7-0eb486e3a2f3" name="Consultation des horaires de la liaison séléctionnée" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="b2b3d00c-0457-4289-8a58-1931bc213da4" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="4c576a2c-3939-489c-9903-2f0f75a656f0" name="Consultation des tarifs de la liaison séléctionnée" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="a5425699-a777-4f6a-b916-ace9f196dbd6" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="3d1aeee6-f78d-4e92-be8d-975215bd301f" />
+          </association>
+        </targetEnds>
+      </useCase>
+    </useCaseModelRootHasTypes>
+  </packagedElements>
+  <package Id="374ff93e-6622-4156-9cab-274693584cb1" name="Le vrai diagramme d'utilisation">
+    <elementDefinition Id="6f6de71b-3ddc-447a-a3f5-9f5ccab1e18a" />
+    <profileInstances>
+      <packageHasProfileInstances Id="62a47e4e-ce3e-4899-ad52-75ae6f46f4aa">
+        <profileInstance Id="5d4bd30c-107f-4b98-a085-3be5ae9897ed" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="e9d7a30c-25db-47a8-a41d-195695c2c6dc">
+        <profileInstance Id="4c1a3eb6-b57c-4925-9a34-a109a8d5e872" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
+  </package>
+</useCaseModelRoot>
