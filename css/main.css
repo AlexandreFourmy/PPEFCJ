@@ -4498,3 +4498,8 @@ body.mobile-nav-active #mobile-nav-toggle {
 .footer-text a, .footer-text i {
   color: #f8b600;
 }
+/* Caler top banner */
+#caler{
+  position: relative;
+  height:500px;
+}
