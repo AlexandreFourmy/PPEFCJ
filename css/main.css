@@ -2098,13 +2098,13 @@ h1, h2, h3, h4, h5, h6 {
   padding-bottom: 20px;
   padding-top: 20px;
   background: rgba(255, 255, 255, 0.15);
-  padding-left: 15px;
+  padding-left: 300px;
   padding-right: 15px;
 }
 
 #header {
   position: absolute;
-  left: 0;
+  left:0;
   top: 0;
   right: 0;
   transition: all 0.5s;
@@ -2371,7 +2371,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 #logo {
   position:absolute;
-  left:5px;
+  left:50px;
   border:solid 1px black;
   opacity: 0.9;
   box-shadow: 0px 0px 10px black;
