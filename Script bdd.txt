@@ -173,5 +173,6 @@ CREATE TABLE Utilisateur(
         id          Int NOT NULL ,
         nom      Char (50) NOT NULL ,
         prenom   Char (50) NOT NULL,
-    	adressemail  VARCHAR (255) NOT NULL
+    	email  VARCHAR (255) NOT NULL,
+		password VARCHAR (255) NOT NULL
 )ENGINE=InnoDB;
