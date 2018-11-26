@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  lun. 26 nov. 2018 à 09:45
+-- Généré le :  lun. 26 nov. 2018 à 09:57
 -- Version du serveur :  5.7.19
 -- Version de PHP :  5.6.31
 
@@ -213,7 +213,7 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   `id` int(11) NOT NULL,
   `nom` char(50) NOT NULL,
   `prenom` char(50) NOT NULL,
-  `adressemail` varchar(255) NOT NULL
+  `email` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
