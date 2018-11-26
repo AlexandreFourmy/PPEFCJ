@@ -93,7 +93,6 @@ CREATE TABLE Traversee(
 	,CONSTRAINT Traversee_PK PRIMARY KEY (num)
 
 	,CONSTRAINT Traversee_Liaison_FK FOREIGN KEY (code) REFERENCES Liaison(code)
-	,CONSTRAINT Traversee_Bateau_FK FOREIGN KEY (id) REFERENCES Bateau(id)
 )ENGINE=InnoDB;
 
 #------------------------------------------------------------
@@ -144,16 +143,6 @@ CREATE TABLE Enregistrer(
 	,CONSTRAINT Enregistrer_Type0_FK FOREIGN KEY (num_Type) REFERENCES Type(num)
 )ENGINE=InnoDB;
 
-#------------------------------------------------------------
-# Table: Catégorie
-#------------------------------------------------------------
-
-CREATE TABLE Categorie(
-        lettre  Char (1) NOT NULL ,
-        libelle Varchar (15) NOT NULL
-	,CONSTRAINT Categorie_PK PRIMARY KEY (lettre)
-)ENGINE=InnoDB;
-
 
 #------------------------------------------------------------
 # Table: Bateau
@@ -180,3 +169,9 @@ CREATE TABLE Contenir(
 )ENGINE=InnoDB;
 
 
+CREATE TABLE Utilisateur(
+        id          Int NOT NULL ,
+        nom      Char (50) NOT NULL ,
+        prenom   Char (50) NOT NULL,
+    	adressemail  VARCHAR (255) NOT NULL
+)ENGINE=InnoDB;
