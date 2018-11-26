@@ -37,6 +37,7 @@ VALUES ('$username', '".md5($password)."', '$email', '$trn_date')";
 <input type="password" name="password" placeholder="Password" required />
 <input type="submit" name="submit" value="Register" />
 </form>
+<p>Already registered? <a href='signin.php'>Sign in here</a></p>
 </div>
 <?php } ?>
 </body>
