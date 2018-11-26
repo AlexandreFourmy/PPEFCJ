@@ -1,0 +1,87 @@
+
+
+#------------------------------------------------------------
+# Table: Bateau
+#------------------------------------------------------------
+
+CREATE TABLE Bateau(
+        id  Int NOT NULL ,
+        nom Varchar (15) NOT NULL
+	,CONSTRAINT Bateau_PK PRIMARY KEY (id)
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: Traversée
+#------------------------------------------------------------
+
+CREATE TABLE Traversee(
+        num   Int NOT NULL ,
+        date  Date NOT NULL ,
+        heure Varchar (15) NOT NULL ,
+        id    Int NOT NULL ,
+        code  Varchar (15) NOT NULL
+	,CONSTRAINT Traversee_PK PRIMARY KEY (num)
+
+	,CONSTRAINT Traversee_Bateau_FK FOREIGN KEY (id) REFERENCES Bateau(id)
+	,CONSTRAINT Traversee_Liaison0_FK FOREIGN KEY (code) REFERENCES Liaison(code)
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: Réservation
+#------------------------------------------------------------
+
+CREATE TABLE Reservation(
+        num           Int NOT NULL ,
+        nom           Varchar (15) NOT NULL ,
+        adr           Text NOT NULL ,
+        cp            Int NOT NULL ,
+        ville         Varchar (15) NOT NULL ,
+        num_Traversee Int NOT NULL
+	,CONSTRAINT Reservation_PK PRIMARY KEY (num)
+
+	,CONSTRAINT Reservation_Traversee_FK FOREIGN KEY (num_Traversee) REFERENCES Traversee(num)
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: Tarifier
+#------------------------------------------------------------
+
+CREATE TABLE Tarifier(
+        code    Varchar (15) NOT NULL ,
+        dateDeb Date NOT NULL ,
+        num     Int NOT NULL ,
+        tarif   DECIMAL (15,3)  NOT NULL
+	,CONSTRAINT Tarifier_PK PRIMARY KEY (code,dateDeb,num)
+
+	,CONSTRAINT Tarifier_Liaison_FK FOREIGN KEY (code) REFERENCES Liaison(code)
+	,CONSTRAINT Tarifier_Periode0_FK FOREIGN KEY (dateDeb) REFERENCES Periode(dateDeb)
+	,CONSTRAINT Tarifier_Type1_FK FOREIGN KEY (num) REFERENCES Type(num)
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: Enregistrer
+#------------------------------------------------------------
+
+CREATE TABLE Enregistrer(
+        num      Int NOT NULL ,
+        num_Type Int NOT NULL ,
+        quantite Int NOT NULL
+	,CONSTRAINT Enregistrer_PK PRIMARY KEY (num,num_Type)
+
+	,CONSTRAINT Enregistrer_Reservation_FK FOREIGN KEY (num) REFERENCES Reservation(num)
+	,CONSTRAINT Enregistrer_Type0_FK FOREIGN KEY (num_Type) REFERENCES Type(num)
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: Contenir
+#------------------------------------------------------------
+
+CREATE TABLE Contenir(
+    capacitemax Int NOT NULL
+    ,CONSTRAINT Contenir_PK PRIMARY KEY (lettre, id)
+    ,CONSTRAINT Contenir_Catégorie_FK FOREIGN KEY (lettre) REFERENCES Catégorie(lettre)
