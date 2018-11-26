@@ -7,9 +7,7 @@ $reservation= new Reservation();
 $reservation->reservation_date = $_POST['date']; 
 $reservation->reservation_heure = $_POST['time']; 
 $reservation->reservation_place = $_POST['number']; 
-$reservation->reservation_aller = $_POST['varchar'];
-$reservation->reservation_retour = $_POST['varchar'];
-$reservation->reservation_allerretour = $_POST['varchar'];
+$reservation->reservation_traverse = $_POST['varchar'];
   
   
   
