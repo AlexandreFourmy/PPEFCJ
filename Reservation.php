@@ -5,6 +5,8 @@
     public $reservation_place; 
     public $reservation_heure; 
     public $reservation_traverse;
+    public $reservation_nomBateau;
+   
     
     
     
@@ -14,8 +16,8 @@
   
     $connection = new PDO('mysql:dbname=easycafet;host=127.0.0.1', 'root', 'azerty'); 
       
-    $connection->exec("INSERT INTO easycafet (reservation_date, reservation_place, reservation_heure, reservation_traverse) 
-    VALUES ('" . $this->reservation_date . "','" . $this->reservation_place . "','" . $this->reservation_heure . "','" . $this->reservation_traverse . "')"); 
+    $connection->exec("INSERT INTO easycafet (reservation_date, reservation_place, reservation_heure, reservation_traverse, reservation_nomBateau) 
+    VALUES ('" . $this->reservation_date . "','" . $this->reservation_place . "','" . $this->reservation_heure . "','" . $this->reservation_traverse . "','" . $this->reservation_nomBateau . "')"); 
     }   
 }     
 ?>

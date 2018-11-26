@@ -8,6 +8,7 @@ $reservation->reservation_date = $_POST['date'];
 $reservation->reservation_heure = $_POST['time']; 
 $reservation->reservation_place = $_POST['number']; 
 $reservation->reservation_traverse = $_POST['varchar'];
+$reservation->reservation_nomBateau  = $_POST['varchar'];
   
   
   
