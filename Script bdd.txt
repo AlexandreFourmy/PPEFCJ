@@ -1,13 +1,83 @@
+#------------------------------------------------------------
+#        Script MySQL.
+#------------------------------------------------------------
 
 
 #------------------------------------------------------------
-# Table: Bateau
+# Table: Secteur
 #------------------------------------------------------------
 
-CREATE TABLE Bateau(
+CREATE TABLE Secteur(
         id  Int NOT NULL ,
         nom Varchar (15) NOT NULL
-	,CONSTRAINT Bateau_PK PRIMARY KEY (id)
+	,CONSTRAINT Secteur_PK PRIMARY KEY (id)
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: Port
+#------------------------------------------------------------
+
+CREATE TABLE Port(
+        id  Int NOT NULL ,
+        nom Varchar (15) NOT NULL
+	,CONSTRAINT Port_PK PRIMARY KEY (id)
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: Liaison
+#------------------------------------------------------------
+
+CREATE TABLE Liaison(
+        code            Varchar (15) NOT NULL ,
+        distance        Varchar (15) NOT NULL ,
+        id              Int NOT NULL ,
+        id_Port         Int NOT NULL ,
+        id_Port_Arrivee Int NOT NULL
+	,CONSTRAINT Liaison_PK PRIMARY KEY (code)
+
+	,CONSTRAINT Liaison_Secteur_FK FOREIGN KEY (id) REFERENCES Secteur(id)
+	,CONSTRAINT Liaison_Port0_FK FOREIGN KEY (id_Port) REFERENCES Port(id)
+	,CONSTRAINT Liaison_Port1_FK FOREIGN KEY (id_Port_Arrivee) REFERENCES Port(id)
+)ENGINE=InnoDB;
+
+#------------------------------------------------------------
+#        Script MySQL.
+#------------------------------------------------------------
+#------------------------------------------------------------
+# Table: Période
+#------------------------------------------------------------
+
+CREATE TABLE Periode(
+        dateDeb Date NOT NULL ,
+        dateFin Date NOT NULL
+	,CONSTRAINT Periode_PK PRIMARY KEY (dateDeb)
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: Catégorie
+#------------------------------------------------------------
+
+CREATE TABLE Categorie(
+        lettre  Char (1) NOT NULL ,
+        libelle Varchar (15) NOT NULL
+	,CONSTRAINT Categorie_PK PRIMARY KEY (lettre)
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: Type
+#------------------------------------------------------------
+
+CREATE TABLE Type(
+        num     Int NOT NULL ,
+        libelle Varchar (15) NOT NULL ,
+        lettre  Char (1) NOT NULL
+	,CONSTRAINT Type_PK PRIMARY KEY (num)
+
+	,CONSTRAINT Type_Categorie_FK FOREIGN KEY (lettre) REFERENCES Categorie(lettre)
 )ENGINE=InnoDB;
 
 
@@ -19,14 +89,12 @@ CREATE TABLE Traversee(
         num   Int NOT NULL ,
         date  Date NOT NULL ,
         heure Varchar (15) NOT NULL ,
-        id    Int NOT NULL ,
         code  Varchar (15) NOT NULL
 	,CONSTRAINT Traversee_PK PRIMARY KEY (num)
 
+	,CONSTRAINT Traversee_Liaison_FK FOREIGN KEY (code) REFERENCES Liaison(code)
 	,CONSTRAINT Traversee_Bateau_FK FOREIGN KEY (id) REFERENCES Bateau(id)
-	,CONSTRAINT Traversee_Liaison0_FK FOREIGN KEY (code) REFERENCES Liaison(code)
 )ENGINE=InnoDB;
-
 
 #------------------------------------------------------------
 # Table: Réservation
@@ -76,12 +144,39 @@ CREATE TABLE Enregistrer(
 	,CONSTRAINT Enregistrer_Type0_FK FOREIGN KEY (num_Type) REFERENCES Type(num)
 )ENGINE=InnoDB;
 
+#------------------------------------------------------------
+# Table: Catégorie
+#------------------------------------------------------------
+
+CREATE TABLE Categorie(
+        lettre  Char (1) NOT NULL ,
+        libelle Varchar (15) NOT NULL
+	,CONSTRAINT Categorie_PK PRIMARY KEY (lettre)
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: Bateau
+#------------------------------------------------------------
+
+CREATE TABLE Bateau(
+        id  Int NOT NULL ,
+        nom Varchar (15) NOT NULL
+	,CONSTRAINT Bateau_PK PRIMARY KEY (id)
+)ENGINE=InnoDB;
 
 #------------------------------------------------------------
 # Table: Contenir
 #------------------------------------------------------------
 
 CREATE TABLE Contenir(
-    capacitemax Int NOT NULL
-    ,CONSTRAINT Contenir_PK PRIMARY KEY (lettre, id)
-    ,CONSTRAINT Contenir_Catégorie_FK FOREIGN KEY (lettre) REFERENCES Catégorie(lettre)
+        id          Int NOT NULL ,
+        lettre      Char (1) NOT NULL ,
+        capaciteMax Int NOT NULL
+	,CONSTRAINT Contenir_PK PRIMARY KEY (id,lettre)
+
+	,CONSTRAINT Contenir_Bateau_FK FOREIGN KEY (id) REFERENCES Bateau(id)
+	,CONSTRAINT Contenir_Categorie0_FK FOREIGN KEY (lettre) REFERENCES Categorie(lettre)
+)ENGINE=InnoDB;
+
+
