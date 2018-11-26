@@ -31,8 +31,8 @@ VALUES ('$nom', '".md5($password)."', '$email')";
     }else{
 ?>
 <div class="form">
-<h1>Inscription</h1>
-<form name="registration" action="" method="post">
+<h1 id="title">Inscription</h1>
+<form id="form" name="registration" action="" method="post">
 <input type="text" name="nom" placeholder="nom" required />
 <input type="text" name="prenom" placeholder="prenom" required />
 <input type="email" name="email" placeholder="email" required />
