@@ -25,7 +25,7 @@ VALUES ('$username', '".md5($password)."', '$email', '$trn_date')";
         if($result){
             echo "<div class='form'>
 <h3>You are registered successfully.</h3>
-<br/>Click here to <a href='login.php'>Login</a></div>";
+<br/>Click here to <a href='signin.php'>Sign in</a></div>";
         }
     }else{
 ?>
