@@ -4503,3 +4503,14 @@ body.mobile-nav-active #mobile-nav-toggle {
   position: relative;
   height:500px;
 }
+#box-sign-in-register{
+  position: absolute;
+  background-color: grey;
+  right:1%;
+  left:85%;
+  height:30px;
+  top:10px;
+  opacity: 0.9;
+  border:solid 1px black;
+  border-radius:10px;
+}
