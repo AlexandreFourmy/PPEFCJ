@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <title>Login</title>
-<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/styleLogin.css" />
 </head>
 <body>
 <?php
-require('db.php');
+require('marieteam.php');
 session_start();
 // If form submitted, insert values into the database.
 if (isset($_POST['nom'])){
@@ -34,13 +34,14 @@ and password='".md5($password)."'";
     }else{
 ?>
 <div class="form">
-<h1>Log In</h1>
+<h1 id="title">Log In</h1>
 <form action="" method="post" name="login">
-<input type="text" name="nom" placeholder="nom" required />
-<input type="password" name="password" placeholder="Password" required />
-<input name="submit" type="submit" value="Login" />
+<input class="boxes" type="text" name="nom" placeholder="nom" required />
+<input class="boxes" type="password" name="password" placeholder="Password" required />
+<input id="submit" name="submit" type="submit" value="Login" />
 </form>
 <p>Not registered yet? <a href='registration.php'>Register Here</a></p>
+<p>Retourner sur le site <a href='index.html'>ici</a></p>
 </div>
 <?php } ?>
 </body>

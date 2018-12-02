@@ -33,13 +33,14 @@ VALUES ('$nom', '".md5($password)."', '$email')";
 <div class="form">
 <h1 id="title">Inscription</h1>
 <form id="form" name="registration" action="" method="post">
-<input type="text" name="nom" placeholder="nom" required />
-<input type="text" name="prenom" placeholder="prenom" required />
-<input type="email" name="email" placeholder="email" required />
-<input type="password" name="password" placeholder="Password" required />
-<input type="submit" name="submit" value="Register" />
+<input class="boxes" type="text" name="nom" placeholder="nom" required />
+<input class="boxes" type="text" name="prenom" placeholder="prenom" required />
+<input class="boxes" type="email" name="email" placeholder="email" required />
+<input class="boxes" type="password" name="password" placeholder="Password" required />
+<input id="submit" type="submit" name="submit" value="Register" />
 </form>
 <p>Déjà enregistré(e)? <a href='signin.php'>Connectez vous ici</a></p>
+<p>Retourner sur le site <a href='index.html'>ici</a></p>
 </div>
 <?php } ?>
 </body>
