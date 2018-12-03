@@ -1,3 +1,9 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Réservation</title>
+</head>
 <?php
     class Reservation { 
       
@@ -21,6 +27,7 @@
     }   
 }     
 ?>
+</html>
 
 /* 
  * To change this license header, choose License Headers in Project Properties.
