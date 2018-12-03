@@ -7,33 +7,28 @@
 </head>
 <body>
 <?php
-require('marieteam.php');
-// If form submitted, insert values into the database.
 if (isset($_REQUEST['nom'])){
-        // removes backslashes
-	$nom = stripslashes($_REQUEST['nom']);
-        //escapes special characters in a string
-	$nom = mysqli_real_escape_string($conn, $nom); 
-	$prenom = stripslashes($_REQUEST['prenom']);
-	$prenom = mysqli_real_escape_string($conn, $prenom); 
-	$email = stripslashes($_REQUEST['email']);
-	$email = mysqli_real_escape_string($conn, $email);
-	$password = stripslashes($_REQUEST['password']);
-	$password = mysqli_real_escape_string($conn, $password);
-        $query = "	INSERT into `utilisateur` (nom, prenom, password, email)
-						VALUES ('$nom', '".md5($password)."', '$email')";
-        $result = mysqli_query($conn, $query);
-        if($result){
-            echo "	<div class='form'>
-					<h3>Vous êtes bien enregistré(e).</h3>
-					<br/>Cliquez ici pour vous <a href='signin.php'>necter</a></div>";
-        }
-    }
+    $db=new PDO('mysql:host=localhost; dbname=marieteam','root','');
+		$username=$_POST['username'];
+		$nom=$_POST['nom'];
+		$prenom=$_POST['prenom'];
+		$email=$_POST['email'];
+		$password=$_POST['password'];
+		
+		$sql=$db->prepare("INSERT INTO utilisateur(username, nom, prenom, email, password) VALUES(?,?,?,?,?)");
+		$sql->execute([$username, $nom, $prenom, $email, $password]);
+		
+		echo "<script type='text/javascript'>";
+		echo "alert('Vous avez bien été enregistré(e)');";
+		echo "window.location.href='index.html';";
+		echo "</script>";
+}
 	else{
 ?>
 <div class="form">
 <h1 id="title">Inscription</h1>
 <form id="form" name="registration" action="" method="post">
+<input class="boxes" type="text" name="username" placeholder="username" required/>
 <input class="boxes" type="text" name="nom" placeholder="nom" required />
 <input class="boxes" type="text" name="prenom" placeholder="prenom" required />
 <input class="boxes" type="email" name="email" placeholder="email" required />
