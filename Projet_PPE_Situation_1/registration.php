@@ -32,7 +32,7 @@ if (isset($_REQUEST['nom'])){
 <input class="boxes" type="text" name="nom" placeholder="nom" required />
 <input class="boxes" type="text" name="prenom" placeholder="prenom" required />
 <input class="boxes" type="email" name="email" placeholder="email" required />
-<input class="boxes" type="password" name="password" placeholder="Password" required />
+<input class="boxes" type="password" name="password" placeholder="password" required />
 <input id="submit" type="submit" name="submit" value="S'enregistrer" />
 </form>
 <p>Déjà enregistré(e)? <a href='signin.php'>Connectez vous ici</a></p>
