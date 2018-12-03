@@ -14,13 +14,13 @@ if (isset($_POST['nom'])){
         // removes backslashes
 	$nom = stripslashes($_REQUEST['nom']);
         //escapes special characters in a string
-	$nom = mysqli_real_escape_string($con,$nom);
+	$nom = mysqli_real_escape_string($conn,$nom);
 	$password = stripslashes($_REQUEST['password']);
-	$password = mysqli_real_escape_string($con,$password);
+	$password = mysqli_real_escape_string($conn,$password);
 	//Checking is user existing in the database or not
         $query = "SELECT * FROM `users` WHERE nom='$nom'
 and password='".md5($password)."'";
-	$result = mysqli_query($con,$query) or die(mysql_error());
+	$result = mysqli_query($conn,$query) or die(mysql_error());
 	$rows = mysqli_num_rows($result);
         if($rows==1){
 	    $_SESSION['nom'] = $nom;
