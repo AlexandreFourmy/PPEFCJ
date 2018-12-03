@@ -14,7 +14,30 @@
 		<!-- meta character set -->
 		<meta charset="UTF-8">
 		<!-- Site Title -->
-		<title>Travel</title>
+		<title>Réservation</title>
+		<?php
+    class Reservation { 
+      
+    public $reservation_date;  
+    public $reservation_place; 
+    public $reservation_heure; 
+    public $reservation_traverse;
+    public $reservation_nomBateau;
+   
+    
+    
+    
+      
+      
+    public function inserer() { 
+  
+    $connection = new PDO('mysql:dbname=easycafet;host=127.0.0.1', 'root', 'azerty'); 
+      
+    $connection->exec("INSERT INTO easycafet (reservation_date, reservation_place, reservation_heure, reservation_traverse, reservation_nomBateau) 
+    VALUES ('" . $this->reservation_date . "','" . $this->reservation_place . "','" . $this->reservation_heure . "','" . $this->reservation_traverse . "','" . $this->reservation_nomBateau . "')"); 
+    }   
+}     
+?>
 
 		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
 			<!--
@@ -71,7 +94,7 @@
 					<div class="row d-flex align-items-center justify-content-center">
 						<div class="about-content col-lg-12">
 							<h1 class="text-white">
-								About Us				
+								Réservation				
 							</h1>	
 							<p class="text-white link-nav"><a href="index.html">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="about.html"> About Us</a></p>
 						</div>	
@@ -88,11 +111,7 @@
 							<img class="img-fluid" src="img/about/info-img.jpg" alt="">
 						</div>
 						<div class="col-lg-6 info-right">
-							<h6>About Us</h6>
-							<h1>Who We Are?</h1>
-							<p>
-								Here, I focus on a range of items and features that we use in life without giving them a second thought. such as Coca Cola. Dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.
-							</p>
+							<h6>Réservation</h6>
 						</div>
 					</div>
 				</div>	
@@ -104,10 +123,6 @@
 				<div class="container">
 		            <div class="row d-flex justify-content-center">
 		                <div class="menu-content pb-70 col-lg-8">
-		                    <div class="title text-center">
-		                        <h1 class="mb-10">We Provide Affordable Prices</h1>
-		                        <p>Well educated, intellectual people, especially scientists at all times demonstrate considerably.</p>
-		                    </div>
 		                </div>
 		            </div>						
 					<div class="row">
