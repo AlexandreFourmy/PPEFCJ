@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Login</title>
+<title>Connexion</title>
 <link rel="stylesheet" href="css/styleLogin.css" />
 </head>
 <body>
@@ -34,13 +34,13 @@ and password='".md5($password)."'";
     }else{
 ?>
 <div class="form">
-<h1 id="title">Log In</h1>
+<h1 id="title">Se connecter</h1>
 <form action="" method="post" name="login">
 <input class="boxes" type="text" name="nom" placeholder="nom" required />
 <input class="boxes" type="password" name="password" placeholder="Password" required />
 <input id="submit" name="submit" type="submit" value="Login" />
 </form>
-<p>Not registered yet? <a href='registration.php'>Register Here</a></p>
+<p>Pas encore enregisté? <a href='registration.php'>S'enregistrer ici</a></p>
 <p>Retourner sur le site <a href='index.html'>ici</a></p>
 </div>
 <?php } ?>

@@ -13,22 +13,23 @@ if (isset($_REQUEST['nom'])){
         // removes backslashes
 	$nom = stripslashes($_REQUEST['nom']);
         //escapes special characters in a string
-	$nom = mysqli_real_escape_string($nom); 
+	$nom = mysqli_real_escape_string($conn, $nom); 
 	$prenom = stripslashes($_REQUEST['prenom']);
-	$prenom = mysqli_real_escape_string($prenom); 
+	$prenom = mysqli_real_escape_string($conn, $prenom); 
 	$email = stripslashes($_REQUEST['email']);
-	$email = mysqli_real_escape_string($email);
+	$email = mysqli_real_escape_string($conn, $email);
 	$password = stripslashes($_REQUEST['password']);
-	$password = mysqli_real_escape_string($password);
-        $query = "INSERT into `utilisateur` (nom, prenom, password, email)
-VALUES ('$nom', '".md5($password)."', '$email')";
-        $result = mysqli_query($query);
+	$password = mysqli_real_escape_string($conn, $password);
+        $query = "	INSERT into `utilisateur` (nom, prenom, password, email)
+						VALUES ('$nom', '".md5($password)."', '$email')";
+        $result = mysqli_query($conn, $query);
         if($result){
-            echo "<div class='form'>
-<h3>Vous êtes bien enregistré(e).</h3>
-<br/>Cliquez ici pour vous <a href='signin.php'>necter</a></div>";
+            echo "	<div class='form'>
+					<h3>Vous êtes bien enregistré(e).</h3>
+					<br/>Cliquez ici pour vous <a href='signin.php'>necter</a></div>";
         }
-    }else{
+    }
+	else{
 ?>
 <div class="form">
 <h1 id="title">Inscription</h1>
@@ -37,11 +38,11 @@ VALUES ('$nom', '".md5($password)."', '$email')";
 <input class="boxes" type="text" name="prenom" placeholder="prenom" required />
 <input class="boxes" type="email" name="email" placeholder="email" required />
 <input class="boxes" type="password" name="password" placeholder="Password" required />
-<input id="submit" type="submit" name="submit" value="Register" />
+<input id="submit" type="submit" name="submit" value="S'enregistrer" />
 </form>
 <p>Déjà enregistré(e)? <a href='signin.php'>Connectez vous ici</a></p>
 <p>Retourner sur le site <a href='index.html'>ici</a></p>
 </div>
-<?php } ?>
+<?php }?>
 </body>
 </html>
