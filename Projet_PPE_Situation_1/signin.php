@@ -30,51 +30,44 @@
 		$sth = null;
 		$dbh = null;
 		*/
-		try
+		if (isset($_REQUEST['username']))
 		{
-			$options = array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
-			$connexion = new PDO(sprintf('mysql:host=%s; dbname=%s','localhost','marieteam'),'root','', $options);
-		}
-		catch(PDOException $e)
-		{
-			trigger_error(sprintf('Erreur MySQL %d<br />%s', $e->getCode(), $e->getMessage()), E_USER_ERROR);
-		}
-		if($_SERVER['REQUEST_METHOD'] == 'POST') // alternative du isset($_POST['submit'])
-		{
+			$db=new PDO('mysql:host=localhost; dbname=marieteam','root','');
+			
 			$username = $_POST['username'];
-				// $username vaut false si pas bon ou vide, et vaut l'username audrement
-			$password = empty($_POST['password']) ? '' : md5($_POST['password']);
-				// $password vaut '' si inexistant ou chaîne vide, et le md5 sinon
-			if ($username and !empty($password))
+			$password=$_POST['password'];
+			
+			try
 			{
-				try
+				$query = '	SELECT COUNT(id) AS nb
+								FROM utilisateur
+									WHERE username = :username
+										AND password = :password';
+				$reponse = $db->prepare($query);
+				$reponse->bindValue(':username', $username, PDO::PARAM_STR);
+				$reponse->bindValue(':password', $password, PDO::PARAM_STR);
+				$reponse->execute();
+				$reponse->bindColumn('nb', $nb_ligne, PDO::PARAM_INT);
+				$reponse->fetch(PDO::FETCH_BOUND);
+				if ($nb_ligne > 0)
 				{
-					$query = '	SELECT COUNT(id) AS nb
-									FROM utilisateur
-										WHERE username = :username
-											AND password = :password';
-					$reponse = $connexion->prepare($query);
-					$reponse->bindValue(':username', $username, PDO::PARAM_STR);
-					$reponse->bindValue(':password', $password, PDO::PARAM_STR);
-					$reponse->execute();
-					$reponse->bindColumn('nb', $nb_ligne, PDO::PARAM_INT);
-					$reponse->fetch(PDO::FETCH_BOUND);
-					if ($nb_ligne > 0)
-					{
-						echo "<script type='text/javascript'>";
-						echo "alert('Vous êtes bien connecté(e)');";
-						echo "window.location.href='index.html';";
-						echo "</script>";
-					}
-					else
-					{
-						$erreur_post = "1";
-					}
+					echo "<script type='text/javascript'>";
+					echo "alert('Vous êtes bien connecté(e)');";
+					echo "window.location.href='index.html';";
+					echo "</script>";
 				}
-				catch(PDOException $e)
+				else
 				{
-					trigger_error(sprintf('Erreur MySQL %d<br />%s', $e->getCode(), $e->getMessage()), E_USER_ERROR);
+					$erreur_post = "1";
+					echo "<script type='text/javascript'>";
+					echo "alert('Le nom d'utilisateur ou le mot de passe est incorrect');";
+					echo "window.location.href='signin.php';";
+					echo "</script>";
 				}
+			}
+			catch(PDOException $e)
+			{
+				trigger_error(sprintf('Erreur MySQL %d<br />%s', $e->getCode(), $e->getMessage()), E_USER_ERROR);
 			}
 		}
 		else
