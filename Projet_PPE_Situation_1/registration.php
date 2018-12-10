@@ -9,19 +9,19 @@
 <?php
 if (isset($_REQUEST['nom'])){
     $db=new PDO('mysql:host=localhost; dbname=marieteam','root','');
-		$username=$_POST['username'];
-		$nom=$_POST['nom'];
-		$prenom=$_POST['prenom'];
-		$email=$_POST['email'];
-		$password=$_POST['password'];
+	$username=$_POST['username'];
+	$nom=$_POST['nom'];
+	$prenom=$_POST['prenom'];
+	$email=$_POST['email'];
+	$password=$_POST['password'];
 		
-		$sql=$db->prepare("INSERT INTO utilisateur(username, nom, prenom, email, password) VALUES(?,?,?,?,?)");
-		$sql->execute([$username, $nom, $prenom, $email, $password]);
+	$sql=$db->prepare("INSERT INTO utilisateur(username, nom, prenom, email, password) VALUES(?,?,?,?,?)");
+	$sql->execute([$username, $nom, $prenom, $email, $password]);
 		
-		echo "<script type='text/javascript'>";
-		echo "alert('Vous avez bien été enregistré(e)');";
-		echo "window.location.href='index.html';";
-		echo "</script>";
+	echo "<script type='text/javascript'>";
+	echo "alert('Vous avez bien été enregistré(e)');";
+	echo "window.location.href='index.html';";
+	echo "</script>";
 }
 	else{
 ?>
