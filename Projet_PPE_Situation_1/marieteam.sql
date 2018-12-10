@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mar. 04 déc. 2018 à 10:17
+-- Généré le :  lun. 10 déc. 2018 à 17:10
 -- Version du serveur :  5.7.23
 -- Version de PHP :  7.2.10
 
@@ -210,13 +210,23 @@ CREATE TABLE IF NOT EXISTS `type` (
 
 DROP TABLE IF EXISTS `utilisateur`;
 CREATE TABLE IF NOT EXISTS `utilisateur` (
-  `id` int(11) NOT NULL,
+  `id` int(255) NOT NULL AUTO_INCREMENT,
   `username` varchar(255) NOT NULL,
   `nom` char(50) NOT NULL,
   `prenom` char(50) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `password` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `utilisateur`
+--
+
+INSERT INTO `utilisateur` (`id`, `username`, `nom`, `prenom`, `email`, `password`) VALUES
+(1, 'rcoussemaeker', 'coussemaeker', 'romain', 'romain.coussemaeker@marieteam.com', 'coussemaeker'),
+(2, 'afourmy', 'fourmy', 'alexandre', 'alexandre.fourmy@marieteam.com', 'fourmy'),
+(3, 'jdussart', 'dussart', 'julien', 'julien.dussart@marieteam.com', 'dussart');
 
 --
 -- Contraintes pour les tables déchargées

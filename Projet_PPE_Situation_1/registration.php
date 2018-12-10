@@ -30,11 +30,11 @@
 			<div class="form">
 				<h1 id="title">Inscription</h1>
 				<form id="form" name="registration" action="" method="post">
-					<input id="username" class="boxes" type="text" name="username" placeholder="username" required/>
-					<input id="nom" class="boxes" type="text" name="nom" placeholder="nom" required />
-					<input id="prenom" class="boxes" type="text" name="prenom" placeholder="prenom" required />
-					<input id="email" class="boxes" type="email" name="email" placeholder="email" required />
-					<input id="password" class="boxes" type="password" name="password" placeholder="password" required />
+					<input id="username" class="boxes" type="text" name="username" placeholder="Nom d'utilisateur" required />
+					<input id="nom" class="boxes" type="text" name="nom" placeholder="Nom" required />
+					<input id="prenom" class="boxes" type="text" name="prenom" placeholder="Prénom" required />
+					<input id="email" class="boxes" type="email" name="email" placeholder="Adresse mail" required />
+					<input id="password" class="boxes" type="password" name="password" placeholder="Mot de passe" required />
 					<input id="submit" type="submit" name="submit" value="S'enregistrer" />
 				</form>
 				<p>Déjà enregistré(e)? <a href='signin.php'>Connectez vous ici</a></p>
