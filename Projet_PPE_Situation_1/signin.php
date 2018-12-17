@@ -7,29 +7,6 @@
 	</head>
 	<body>
 		<?php
-		/*	Test #1 connection
-		$sql=$db->prepare("SELECT * FROM utilisateur WHERE username='?'");
-		$sql->execute($_POST['username']);
-		*/
-	
-	
-		/*	Test #2 connection
-		$username=$_POST['username'];
-		$password=md5($_POST['password']);
-		try {
-			$dbh = new PDO('mysql:host=localhost;dbname=marieteam','root','');
-			foreach($dbh->query('SELECT * from utilisateur') as $row) {
-			print_r($row);
-			}
-			$dbh = null;
-		}
-		catch (PDOException $e) {
-			print "Erreur !: " . $e->getMessage() . "<br/>";
-			die();
-		}
-		$sth = null;
-		$dbh = null;
-		*/
 		if (isset($_REQUEST['username']))
 		{
 			$db=new PDO('mysql:host=localhost; dbname=marieteam','root','');
@@ -49,19 +26,20 @@
 				$reponse->execute();
 				$reponse->bindColumn('nb', $nb_ligne, PDO::PARAM_INT);
 				$reponse->fetch(PDO::FETCH_BOUND);
+				echo "$nb_ligne";
+				if ($nb_ligne < 1)
+				{
+					echo "<script type='text/javascript'>";
+					echo "alert('Le nom d'utilisateur ou le mot de passe est incorrect');";
+					echo "window.location.href='signin.php';";
+					echo "</script>";
+					$erreur_post = "1";
+				}				
 				if ($nb_ligne > 0)
 				{
 					echo "<script type='text/javascript'>";
 					echo "alert('Vous êtes bien connecté(e)');";
 					echo "window.location.href='index.html';";
-					echo "</script>";
-				}
-				else
-				{
-					$erreur_post = "1";
-					echo "<script type='text/javascript'>";
-					echo "alert('Le nom d'utilisateur ou le mot de passe est incorrect');";
-					echo "window.location.href='signin.php';";
 					echo "</script>";
 				}
 			}
