@@ -15,6 +15,7 @@
 		<meta charset="UTF-8">
 		<!-- Site Title -->
 		<title>Réservation</title>
+		<!--
 		<?php
     class Reservation { 
       
@@ -31,13 +32,15 @@
       
     public function inserer() { 
   
-    $connection = new PDO('mysql:dbname=easycafet;host=127.0.0.1', 'root', 'azerty'); 
+    $connection = new PDO('mysql:dbname=easycafet;host=localhost', 'root', ''); 
       
     $connection->exec("INSERT INTO easycafet (reservation_date, reservation_place, reservation_heure, reservation_traverse, reservation_nomBateau) 
     VALUES ('" . $this->reservation_date . "','" . $this->reservation_place . "','" . $this->reservation_heure . "','" . $this->reservation_traverse . "','" . $this->reservation_nomBateau . "')"); 
     }   
 }     
 ?>
+
+--!>
 
 		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
 			<!--
@@ -203,9 +206,16 @@
 				<td>295.0</td>
 
 				<td><form><br><input type="number"></br></form></td>
+				
+				
 
 			</tr>
+							 
 			</table>
+			
+			<form action="recap.html">
+			<input type="submit" value="Enregistrer les modifications" />
+</form>
 <!-- start footer Area -->		
 			<footer class="footer-area section-gap">
 				<div class="container">
