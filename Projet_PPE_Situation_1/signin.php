@@ -26,11 +26,10 @@
 				$reponse->execute();
 				$reponse->bindColumn('nb', $nb_ligne, PDO::PARAM_INT);
 				$reponse->fetch(PDO::FETCH_BOUND);
-				echo "$nb_ligne";
-				if ($nb_ligne < 1)
+				if ($nb_ligne == 0)
 				{
 					echo "<script type='text/javascript'>";
-					echo "alert('Le nom d'utilisateur ou le mot de passe est incorrect');";
+					echo "alert('Le nom d\'utilisateur ou le mot de passe est incorrect');";
 					echo "window.location.href='signin.php';";
 					echo "</script>";
 					$erreur_post = "1";
