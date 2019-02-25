@@ -14,7 +14,33 @@
 		<!-- meta character set -->
 		<meta charset="UTF-8">
 		<!-- Site Title -->
-		<title>Travel</title>
+		<title>Réservation</title>
+		<!--
+		<?php
+    class Reservation { 
+      
+    public $reservation_date;  
+    public $reservation_place; 
+    public $reservation_heure; 
+    public $reservation_traverse;
+    public $reservation_nomBateau;
+   
+    
+    
+    
+      
+      
+    public function inserer() { 
+  
+    $connection = new PDO('mysql:dbname=easycafet;host=localhost', 'root', ''); 
+      
+    $connection->exec("INSERT INTO easycafet (reservation_date, reservation_place, reservation_heure, reservation_traverse, reservation_nomBateau) 
+    VALUES ('" . $this->reservation_date . "','" . $this->reservation_place . "','" . $this->reservation_heure . "','" . $this->reservation_traverse . "','" . $this->reservation_nomBateau . "')"); 
+    }   
+}     
+?>
+
+--!>
 
 		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
 			<!--
@@ -54,14 +80,15 @@
 				      <nav id="nav-menu-container">
 				        <ul class="nav-menu">
 				          <li><a href="index.html">Accueil</a></li>
-				          <li><a href="about.html">Réservation</a></li>
-				          <li><a href="packages.html">Horaires</a></li>
-				          <li><a href="hotels.html">Tarifs</a></li>
-				          <li><a href="insurance.html">Liaisons</a></li>
+				          <li><a href="reservation.html">Réservation</a></li>
+				          <li><a href="horaires.html">Horaires</a></li>
+				          <li><a href="tarifs.html">Tarifs</a></li>
+				          <li><a href="liaisons.html">Liaisons</a></li>
 				      </nav><!-- #nav-menu-container -->					      		  
 					</div>
 				</div>
 			</header><!-- #header -->
+			
 			  
 			<!-- start banner Area -->
 			<section class="about-banner relative">
@@ -70,18 +97,126 @@
 					<div class="row d-flex align-items-center justify-content-center">
 						<div class="about-content col-lg-12">
 							<h1 class="text-white">
-								Horaires				
+								Réservation				
 							</h1>	
-							<p class="text-white link-nav"><a href="index.html">Accueil </a>  <span class="lnr lnr-arrow-right"></span>  <a href="packages.html"> Horaires</a></p>
+							<p class="text-white link-nav"><a href="index.html">Accueil </a>  <span class="lnr lnr-arrow-right"></span>  <a href="about.html"> Réservation</a></p>
 						</div>	
 					</div>
 				</div>
 			</section>
 			<!-- End banner Area -->	
+			<section class="reservation tableau">
+			 <form>
+				Nom:<br>
+					<input type="text" name="nom"></br>
+				Adresse:<br>
+					<input type="text" name="adresse"></br>
+			</form>
+			<form>
+				CP:<br>
+					<input type="text" name="codepostal"></br>
+				Ville:<br>
+					<input type="text" name="ville"></br>
+			</form> 
+			<table>
+			<tr>
 
+				<th></th>
 
+				<th>Tarif en €</th>
 
-			<!-- start footer Area -->		
+				<th>Quantité</th>
+
+			</tr>
+
+			<tr>
+
+				<td>Adulte</td>
+
+				<td>20.0</td>
+
+				<td><form><br><input type="number"></br></form></td>
+
+			</tr>
+
+			<tr>
+
+				<td>Junior 8 à 18 ans</td>
+
+				<td>13.10</td>
+
+				<td><form><br><input type="number"></br></form></td>
+
+			</tr>	
+			
+			<tr>
+
+				<td>Enfant 0 à 7 ans</td>
+
+				<td>7.0</td>
+
+				<td><form><br><input type="number"></br></form></td>
+
+			</tr>
+			
+			<tr>
+
+				<td>Voiture long.inf.à.4m</td>
+
+				<td>95.0</td>
+
+				<td><form><br><input type="number"></br></form></td>
+
+			</tr>
+			
+			<tr>
+
+				<td>Voiture long.inf.à.5m</td>
+
+				<td>142.0</td>
+
+				<td><form><br><input type="number"></br></form></td>
+
+			</tr>
+			
+			<tr>
+
+				<td>Fourgon</td>
+
+				<td>208.0</td>
+
+				<td><form><br><input type="number"></br></form></td>
+
+			</tr>
+			
+			<tr>
+
+				<td>Camping car</td>
+
+				<td>226.0</td>
+
+				<td><form><br><input type="number"></br></form></td>
+
+			</tr>
+			
+			<tr>
+
+				<td>Camion</td>
+
+				<td>295.0</td>
+
+				<td><form><br><input type="number"></br></form></td>
+				
+				
+
+			</tr>
+							 
+			</table>
+			
+			<form action="recap.html">
+			<input type="submit" value="Enregistrer les modifications" />
+</form>
+<!-- start footer Area -->		
 			<footer class="footer-area section-gap">
 				<div class="container">
 
@@ -146,7 +281,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 					</div>
 				</div>
 			</footer>
-			<!-- End footer Area -->	
+			<!-- End footer Area -->		
 
 			<script src="js/vendor/jquery-2.2.4.min.js"></script>
 			<script src="js/popper.min.js"></script>

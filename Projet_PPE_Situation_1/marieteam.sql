@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  lun. 10 déc. 2018 à 17:10
--- Version du serveur :  5.7.23
--- Version de PHP :  7.2.10
+-- Généré le :  lun. 17 déc. 2018 à 10:36
+-- Version du serveur :  5.7.19
+-- Version de PHP :  5.6.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -216,17 +216,19 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   `prenom` char(50) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
+  `statut` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `utilisateur`
 --
 
-INSERT INTO `utilisateur` (`id`, `username`, `nom`, `prenom`, `email`, `password`) VALUES
-(1, 'rcoussemaeker', 'coussemaeker', 'romain', 'romain.coussemaeker@marieteam.com', 'coussemaeker'),
-(2, 'afourmy', 'fourmy', 'alexandre', 'alexandre.fourmy@marieteam.com', 'fourmy'),
-(3, 'jdussart', 'dussart', 'julien', 'julien.dussart@marieteam.com', 'dussart');
+INSERT INTO `utilisateur` (`id`, `username`, `nom`, `prenom`, `email`, `password`, `statut`) VALUES
+(1, 'rcoussemaeker', 'coussemaeker', 'romain', 'romain.coussemaeker@marieteam.com', 'coussemaeker', 'user'),
+(2, 'afourmy', 'fourmy', 'alexandre', 'alexandre.fourmy@marieteam.com', 'fourmy', 'user'),
+(3, 'jdussart', 'dussart', 'julien', 'julien.dussart@marieteam.com', 'dussart', 'user'),
+(4, 'admin', 'admin', 'admin', 'contact@marieteam.com', 'admin', 'admin');
 
 --
 -- Contraintes pour les tables déchargées
