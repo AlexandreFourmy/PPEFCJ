@@ -1,3 +1,9 @@
+<?php
+include_once('secteurs.php');
+$query="SELECT * FROM Secteurs";
+$result=mysql_query($query);
+?>
+
 	<!DOCTYPE html>
 	<html lang="zxx" class="no-js">
 	<head>
@@ -40,10 +46,10 @@
 }     
 ?>
 
---!>
+!>
 
 		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
-			<!--
+			
 			CSS
 			============================================= -->
 			<link rel="stylesheet" href="css/linearicons.css">
@@ -105,117 +111,10 @@
 				</div>
 			</section>
 			<!-- End banner Area -->	
-			<section class="reservation tableau">
-			 <form>
-				Nom:<br>
-					<input type="text" name="nom"></br>
-				Adresse:<br>
-					<input type="text" name="adresse"></br>
-			</form>
-			<form>
-				CP:<br>
-					<input type="text" name="codepostal"></br>
-				Ville:<br>
-					<input type="text" name="ville"></br>
-			</form> 
-			<table>
-			<tr>
-
-				<th></th>
-
-				<th>Tarif en €</th>
-
-				<th>Quantité</th>
-
-			</tr>
-
-			<tr>
-
-				<td>Adulte</td>
-
-				<td>20.0</td>
-
-				<td><form><br><input type="number"></br></form></td>
-
-			</tr>
-
-			<tr>
-
-				<td>Junior 8 à 18 ans</td>
-
-				<td>13.10</td>
-
-				<td><form><br><input type="number"></br></form></td>
-
-			</tr>	
-			
-			<tr>
-
-				<td>Enfant 0 à 7 ans</td>
-
-				<td>7.0</td>
-
-				<td><form><br><input type="number"></br></form></td>
-
-			</tr>
-			
-			<tr>
-
-				<td>Voiture long.inf.à.4m</td>
-
-				<td>95.0</td>
-
-				<td><form><br><input type="number"></br></form></td>
-
-			</tr>
-			
-			<tr>
-
-				<td>Voiture long.inf.à.5m</td>
-
-				<td>142.0</td>
-
-				<td><form><br><input type="number"></br></form></td>
-
-			</tr>
-			
-			<tr>
-
-				<td>Fourgon</td>
-
-				<td>208.0</td>
-
-				<td><form><br><input type="number"></br></form></td>
-
-			</tr>
-			
-			<tr>
-
-				<td>Camping car</td>
-
-				<td>226.0</td>
-
-				<td><form><br><input type="number"></br></form></td>
-
-			</tr>
-			
-			<tr>
-
-				<td>Camion</td>
-
-				<td>295.0</td>
-
-				<td><form><br><input type="number"></br></form></td>
-				
-				
-
-			</tr>
-							 
-			</table>
-			
-			<form action="recap.html">
-			<input type="submit" value="Enregistrer les modifications" />
-</form>
+			<table style="width:100%">
+				<tr>
+					Séléctionner un secteur:
+			  </table> 
 <!-- start footer Area -->		
 			<footer class="footer-area section-gap">
 				<div class="container">
