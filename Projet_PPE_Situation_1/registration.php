@@ -15,9 +15,10 @@
 			$prenom=$_POST['prenom'];
 			$email=$_POST['email'];
 			$password=$_POST['password'];
+			$statut='user';
 		
-			$sql=$db->prepare("INSERT INTO utilisateur(username, nom, prenom, email, password) VALUES(?,?,?,?,?)");
-			$sql->execute([$username, $nom, $prenom, $email, $password]);
+			$sql=$db->prepare("INSERT INTO utilisateur(username, nom, prenom, email, password, statut) VALUES(?,?,?,?,?,?)");
+			$sql->execute([$username, $nom, $prenom, $email, $password, $statut]);
 		
 			echo "<script type='text/javascript'>";
 			echo "alert('Vous avez bien été enregistré(e)');";
