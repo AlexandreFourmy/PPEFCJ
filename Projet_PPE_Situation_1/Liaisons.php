@@ -1,7 +1,7 @@
 <?php
 $liste_pages = array(
-  'Nom page 1' => 'page.php',
-  'Nom page 2' => 'index.php?page=X',
+  'Quiberon vers Le Palais' => 'page.php',
+  'Le Palais vers Quiberon' => 'index.php?page=X',
   'Nom page 3' => 'dossier/page.html'
 );
 
