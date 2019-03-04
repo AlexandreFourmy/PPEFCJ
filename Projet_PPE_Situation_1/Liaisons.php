@@ -2,7 +2,14 @@
 $liste_pages = array(
   'Quiberon vers Le Palais' => 'page.php',
   'Le Palais vers Quiberon' => 'index.php?page=X',
-  'Nom page 3' => 'dossier/page.html'
+  'Quiberon vers Sauzon' => 'dossier/page.html'
+  'Sauzon vers Quiberon' => 'page.php',
+  'Vannes vers Le Palais' => 'index.php?page=X',
+  'Le Palais vers Vannes' => 'dossier/page.html'
+  'Quiberon vers Port St Gildas' => 'page.php',
+  'Port St Gildas vers Quiberon' => 'index.php?page=X',
+  'Lorient vers Port-Tudy' => 'dossier/page.html'
+  'Port-Tudy vers Lorient' => 'page.php',
 );
 
 if(!empty($_POST['redir']) AND in_array($_POST['redir'], $liste_pages)){
