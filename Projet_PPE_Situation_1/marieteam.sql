@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  lun. 17 déc. 2018 à 10:36
+-- Généré le :  lun. 04 mars 2019 à 08:28
 -- Version du serveur :  5.7.19
 -- Version de PHP :  5.6.31
 
@@ -113,6 +113,19 @@ CREATE TABLE IF NOT EXISTS `periode` (
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `permissions`
+--
+
+DROP TABLE IF EXISTS `permissions`;
+CREATE TABLE IF NOT EXISTS `permissions` (
+  `perm_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `perm_desc` varchar(50) NOT NULL,
+  PRIMARY KEY (`perm_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `port`
 --
 
@@ -140,6 +153,33 @@ CREATE TABLE IF NOT EXISTS `reservation` (
   PRIMARY KEY (`num`),
   KEY `Reservation_Traversee_FK` (`num_Traversee`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `roles`
+--
+
+DROP TABLE IF EXISTS `roles`;
+CREATE TABLE IF NOT EXISTS `roles` (
+  `role_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `role_name` varchar(50) NOT NULL,
+  PRIMARY KEY (`role_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `role_perm`
+--
+
+DROP TABLE IF EXISTS `role_perm`;
+CREATE TABLE IF NOT EXISTS `role_perm` (
+  `role_id` int(10) UNSIGNED NOT NULL,
+  `perm_id` int(10) UNSIGNED NOT NULL,
+  KEY `role_id` (`role_id`),
+  KEY `perm_id` (`perm_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -205,6 +245,20 @@ CREATE TABLE IF NOT EXISTS `type` (
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `user_role`
+--
+
+DROP TABLE IF EXISTS `user_role`;
+CREATE TABLE IF NOT EXISTS `user_role` (
+  `user_id` int(10) UNSIGNED NOT NULL,
+  `role_id` int(10) UNSIGNED NOT NULL,
+  KEY `user_id` (`user_id`),
+  KEY `role_id` (`role_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `utilisateur`
 --
 
@@ -218,7 +272,7 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   `password` varchar(255) NOT NULL,
   `statut` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `utilisateur`
