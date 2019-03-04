@@ -1,0 +1,1 @@
+Traversées disponibles -> [Selection Traversée] -> [Confirmer] -> Consultation des tarifs + horaire + nb de places pour cette traversée -> [Séléctionner traversée] -> [Confirmer] -> Réservation -> [Confirmer] -> Paiement

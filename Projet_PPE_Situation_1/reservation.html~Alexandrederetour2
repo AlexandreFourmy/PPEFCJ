@@ -1,0 +1,21 @@
+<section class="reservation tableau">
+    <form>
+       Nom:<br>
+           <input type="text" name="nom"></br>
+       Adresse:<br>
+           <input type="text" name="adresse"></br>
+   </form>
+   <form>
+       CP:<br>
+           <input type="text" name="codepostal"></br>
+       Ville:<br>
+           <input type="text" name="ville"></br>
+   </form> 
+   <table>
+
+                    
+   </table>
+   
+   <form action="recap.html">
+   <input type="submit" value="Enregistrer les modifications" />
+</form>
