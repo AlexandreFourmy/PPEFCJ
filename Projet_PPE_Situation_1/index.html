@@ -54,10 +54,9 @@
 				      <nav id="nav-menu-container">
 				        <ul class="nav-menu">
 				          <li><a href="index.html">Accueil</a></li>
-				          <li><a href="reservation.html">Réservation</a></li>
+				          <li><a href="reservation1.php">Réservation</a></li>
 				          <li><a href="horaires.html">Horaires</a></li>
 				          <li><a href="tarifs.html">Tarifs</a></li>
-				          <li><a href="liaisons.html">Liaisons</a></li>
 				      </nav><!-- #nav-menu-container -->					      		  
 					</div>
 				</div>
@@ -79,7 +78,7 @@
 							<p class="text-white">
 								Compagnie de transport de marchandises et de personnes par voie maritime.
 							</p>
-							<a href="insurance.html" class="primary-btn text-uppercase">Démarrer</a>
+							<a href="reservation1.html" class="primary-btn text-uppercase">Démarrer</a>
 						</div>
 						<div id="caler">
 						</div>
@@ -87,251 +86,51 @@
 				</div>					
 			</section>
 			<!-- End banner Area -->
-
-			<!-- Start popular-destination Area -->
-			<section class="popular-destination-area section-gap">
-				<div class="container">
-		            <div class="row d-flex justify-content-center">
-		                <div class="menu-content pb-70 col-lg-8">
-		                    <div class="title text-center">
-		                        <h1 class="mb-10">Destinations populaire</h1>
-		                    </div>
-		                </div>
-		            </div>						
-					<div class="row">
-						<div class="col-lg-4">
-							<div class="single-destination relative">
-								<div class="thumb relative">
-									<div class="overlay overlay-bg"></div>
-									<img class="img-fluid" src="img/d1.jpg" alt="">
-								</div>
-								<div class="desc">			
-									<h4>Mountain River</h4>
-									<p>Paraguay</p>			
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4">
-							<div class="single-destination relative">
-								<div class="thumb relative">
-									<div class="overlay overlay-bg"></div>
-									<img class="img-fluid" src="img/d2.jpg" alt="">
-								</div>
-								<div class="desc">			
-									<h4>Dream City</h4>
-									<p>Paris</p>			
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4">
-							<div class="single-destination relative">
-								<div class="thumb relative">
-									<div class="overlay overlay-bg"></div>
-									<img class="img-fluid" src="img/d3.jpg" alt="">
-								</div>
-								<div class="desc">			
-									<h4>Cloud Mountain</h4>
-									<p>Sri Lanka</p>			
-								</div>
-							</div>
-						</div>												
+			<?php
+				if (isset($_REQUEST['nom']))
+				{
+					$db=new PDO('mysql:host=localhost; dbname=marieteam','root','');
+					$username=$_POST['username'];
+					$nom=$_POST['nom'];
+					$prenom=$_POST['prenom'];
+					$email=$_POST['email'];
+					$password=$_POST['password'];
+					$statut='user';
+		
+					$sql=$db->prepare("INSERT INTO utilisateur(username, nom, prenom, email, password, statut) VALUES(?,?,?,?,?,?)");
+					$sql->execute([$username, $nom, $prenom, $email, $password, $statut]);
+		
+					echo "<script type='text/javascript'>";
+					echo "alert('Vous avez bien été enregistré(e)');";
+					echo "window.location.href='index.html';";
+					echo "</script>";
+				}
+				else
+				{
+					?>
+					<div class="form">
+						<h1 id="title">Inscription</h1>
+						<form id="form" name="registration" action="" method="post">
+							<p>Nom d'utilisateur</p>
+							<input id="username" class="boxes" type="text" name="username" placeholder="Nom d'utilisateur" required />
+							<p>Nom</p>
+							<input id="nom" class="boxes" type="text" name="nom" placeholder="Nom" required />
+							<p>Prénom</p>
+							<input id="prenom" class="boxes" type="text" name="prenom" placeholder="Prénom" required />
+							<p>Adresse mail</p>
+							<input id="email" class="boxes" type="email" name="email" placeholder="Adresse mail" required />
+							<p>Mot de passe</p>
+							<input id="password" class="boxes" type="password" name="password" placeholder="Mot de passe" required />
+							<input id="submit" type="submit" name="submit" value="S'enregistrer" />
+						</form>
+						<p>Déjà enregistré(e)? <a href='signin.php'>Connectez vous ici</a></p>
+						<p>Retourner sur le site <a href='index.html'>ici</a></p>
 					</div>
-				</div>	
-			</section>
-			<!-- End popular-destination Area -->
-			
+					<?php
+				}
+				?>
 
-			<!-- Start price Area -->
-			<section class="price-area section-gap">
-				<div class="container">
-		            <div class="row d-flex justify-content-center">
-		                <div class="menu-content pb-70 col-lg-8">
-		                    <div class="title text-center">
-		                        <h1 class="mb-10">Nous proposons des prix abordables</h1>
-		                    </div>
-		                </div>
-		            </div>						
-				</div>	
-			</section>
-			<!-- End price Area -->
-
-			<!-- Start home-about Area -->
-			<section class="home-about-area">
-				<div class="container-fluid">
-					<div class="row align-items-center justify-content-end">
-						<div class="col-lg-6 col-md-12 home-about-left">
-							<h1>
-								Did not find your Package? <br>
-								Feel free to ask us. <br>
-								We‘ll make it for you
-							</h1>
-							<p>
-								inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct standards especially in the workplace. That’s why it’s crucial that, as women, our behavior on the job is beyond reproach. inappropriate behavior is often laughed.
-							</p>
-							<a href="#" class="primary-btn text-uppercase">request custom price</a>
-						</div>
-						<div class="col-lg-6 col-md-12 home-about-right no-padding">
-							<img class="img-fluid" src="img/about-img.jpg" alt="">
-						</div>
-					</div>
-				</div>	
-			</section>
-			<!-- End home-about Area -->
-			
-	
-			<!-- Start blog Area -->
-			<section class="recent-blog-area section-gap">
-				<div class="container">
-					<div class="row d-flex justify-content-center">
-						<div class="menu-content pb-60 col-lg-9">
-							<div class="title text-center">
-								<h1 class="mb-10">Latest from Our Blog</h1>
-								<p>With the exception of Nietzsche, no other madman has contributed so much to human sanity as has.</p>
-							</div>
-						</div>
-					</div>							
-					<div class="row">
-						<div class="active-recent-blog-carusel">
-							<div class="single-recent-blog-post item">
-								<div class="thumb">
-									<img class="img-fluid" src="img/b1.jpg" alt="">
-								</div>
-								<div class="details">
-									<div class="tags">
-										<ul>
-											<li>
-												<a href="#">Travel</a>
-											</li>
-											<li>
-												<a href="#">Life Style</a>
-											</li>											
-										</ul>
-									</div>
-									<a href="#"><h4 class="title">Low Cost Advertising</h4></a>
-									<p>
-										Acres of Diamonds… you’ve read the famous story, or at least had it related to you. A farmer.
-									</p>
-									<h6 class="date">31st January,2018</h6>
-								</div>	
-							</div>
-							<div class="single-recent-blog-post item">
-								<div class="thumb">
-									<img class="img-fluid" src="img/b2.jpg" alt="">
-								</div>
-								<div class="details">
-									<div class="tags">
-										<ul>
-											<li>
-												<a href="#">Travel</a>
-											</li>
-											<li>
-												<a href="#">Life Style</a>
-											</li>											
-										</ul>
-									</div>
-									<a href="#"><h4 class="title">Creative Outdoor Ads</h4></a>
-									<p>
-										Acres of Diamonds… you’ve read the famous story, or at least had it related to you. A farmer.
-									</p>
-									<h6 class="date">31st January,2018</h6>
-								</div>	
-							</div>
-							<div class="single-recent-blog-post item">
-								<div class="thumb">
-									<img class="img-fluid" src="img/b3.jpg" alt="">
-								</div>
-								<div class="details">
-									<div class="tags">
-										<ul>
-											<li>
-												<a href="#">Travel</a>
-											</li>
-											<li>
-												<a href="#">Life Style</a>
-											</li>											
-										</ul>
-									</div>
-									<a href="#"><h4 class="title">It's Classified How To Utilize Free</h4></a>
-									<p>
-										Acres of Diamonds… you’ve read the famous story, or at least had it related to you. A farmer.
-									</p>
-									<h6 class="date">31st January,2018</h6>
-								</div>	
-							</div>	
-							<div class="single-recent-blog-post item">
-								<div class="thumb">
-									<img class="img-fluid" src="img/b1.jpg" alt="">
-								</div>
-								<div class="details">
-									<div class="tags">
-										<ul>
-											<li>
-												<a href="#">Travel</a>
-											</li>
-											<li>
-												<a href="#">Life Style</a>
-											</li>											
-										</ul>
-									</div>
-									<a href="#"><h4 class="title">Low Cost Advertising</h4></a>
-									<p>
-										Acres of Diamonds… you’ve read the famous story, or at least had it related to you. A farmer.
-									</p>
-									<h6 class="date">31st January,2018</h6>
-								</div>	
-							</div>
-							<div class="single-recent-blog-post item">
-								<div class="thumb">
-									<img class="img-fluid" src="img/b2.jpg" alt="">
-								</div>
-								<div class="details">
-									<div class="tags">
-										<ul>
-											<li>
-												<a href="#">Travel</a>
-											</li>
-											<li>
-												<a href="#">Life Style</a>
-											</li>											
-										</ul>
-									</div>
-									<a href="#"><h4 class="title">Creative Outdoor Ads</h4></a>
-									<p>
-										Acres of Diamonds… you’ve read the famous story, or at least had it related to you. A farmer.
-									</p>
-									<h6 class="date">31st January,2018</h6>
-								</div>	
-							</div>
-							<div class="single-recent-blog-post item">
-								<div class="thumb">
-									<img class="img-fluid" src="img/b3.jpg" alt="">
-								</div>
-								<div class="details">
-									<div class="tags">
-										<ul>
-											<li>
-												<a href="#">Travel</a>
-											</li>
-											<li>
-												<a href="#">Life Style</a>
-											</li>											
-										</ul>
-									</div>
-									<a href="#"><h4 class="title">It's Classified How To Utilize Free</h4></a>
-									<p>
-										Acres of Diamonds… you’ve read the famous story, or at least had it related to you. A farmer.
-									</p>
-									<h6 class="date">31st January,2018</h6>
-								</div>	
-							</div>														
-
-						</div>
-					</div>
-				</div>	
-			</section>
-			<!-- End recent-blog Area -->			
-
-<!-- start footer Area -->		
+			<!-- start footer Area -->		
 			<footer class="footer-area section-gap">
 				<div class="container">
 
@@ -357,9 +156,6 @@
 										</ul>
 									</div>
 									<div class="col">
-										<ul>
-											<li><a href="#">Liaisons</a></li>
-										</ul>
 									</div>										
 								</div>							
 							</div>

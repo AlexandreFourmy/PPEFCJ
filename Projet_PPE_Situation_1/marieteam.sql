@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 
 DROP TABLE IF EXISTS `bateau`;
 CREATE TABLE IF NOT EXISTS `bateau` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(15) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -56,7 +56,7 @@ CREATE TABLE IF NOT EXISTS `categorie` (
 
 DROP TABLE IF EXISTS `contenir`;
 CREATE TABLE IF NOT EXISTS `contenir` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `lettre` char(1) NOT NULL,
   `capaciteMax` int(11) NOT NULL,
   PRIMARY KEY (`id`,`lettre`),
@@ -88,9 +88,9 @@ DROP TABLE IF EXISTS `liaison`;
 CREATE TABLE IF NOT EXISTS `liaison` (
   `code` varchar(15) NOT NULL,
   `distance` varchar(15) NOT NULL,
-  `id` int(11) NOT NULL,
-  `id_Port` int(11) NOT NULL,
-  `id_Port_Arrivee` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_Port` int(11) NOT NULL AUTO_INCREMENT,
+  `id_Port_Arrivee` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`code`),
   KEY `Liaison_Secteur_FK` (`id`),
   KEY `Liaison_Port0_FK` (`id_Port`),
@@ -131,7 +131,7 @@ CREATE TABLE IF NOT EXISTS `permissions` (
 
 DROP TABLE IF EXISTS `port`;
 CREATE TABLE IF NOT EXISTS `port` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(15) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -144,7 +144,7 @@ CREATE TABLE IF NOT EXISTS `port` (
 
 DROP TABLE IF EXISTS `reservation`;
 CREATE TABLE IF NOT EXISTS `reservation` (
-  `num` int(11) NOT NULL,
+  `num` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(15) NOT NULL,
   `adr` text NOT NULL,
   `cp` int(11) NOT NULL,
@@ -189,7 +189,7 @@ CREATE TABLE IF NOT EXISTS `role_perm` (
 
 DROP TABLE IF EXISTS `secteur`;
 CREATE TABLE IF NOT EXISTS `secteur` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(15) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -235,7 +235,7 @@ CREATE TABLE IF NOT EXISTS `traversee` (
 
 DROP TABLE IF EXISTS `type`;
 CREATE TABLE IF NOT EXISTS `type` (
-  `num` int(11) NOT NULL,
+  `num` int(11) NOT NULL AUTO_INCREMENT,
   `libelle` varchar(15) NOT NULL,
   `lettre` char(1) NOT NULL,
   PRIMARY KEY (`num`),

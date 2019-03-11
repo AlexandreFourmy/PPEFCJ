@@ -40,6 +40,7 @@
 					echo "alert('Vous êtes bien connecté(e)');";
 					echo "window.location.href='index.html';";
 					echo "</script>";
+					
 				}
 			}
 			catch(PDOException $e)

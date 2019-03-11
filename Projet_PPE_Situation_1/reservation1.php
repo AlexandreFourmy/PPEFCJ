@@ -1,7 +1,11 @@
 <?php
 include_once('secteurs.php');
-$query="SELECT * FROM Secteurs";
+$query="SELECT nom FROM secteur";
 $result=mysql_query($query);
+while($total = mysql_fetch_array($result))
+{
+	$val=$total["secteur"];
+}
 ?>
 
 	<!DOCTYPE html>
@@ -22,29 +26,6 @@ $result=mysql_query($query);
 		<!-- Site Title -->
 		<title>Réservation</title>
 		<!--
-		<?php
-    class Reservation { 
-      
-    public $reservation_date;  
-    public $reservation_place; 
-    public $reservation_heure; 
-    public $reservation_traverse;
-    public $reservation_nomBateau;
-   
-    
-    
-    
-      
-      
-    public function inserer() { 
-  
-    $connection = new PDO('mysql:dbname=easycafet;host=localhost', 'root', ''); 
-      
-    $connection->exec("INSERT INTO easycafet (reservation_date, reservation_place, reservation_heure, reservation_traverse, reservation_nomBateau) 
-    VALUES ('" . $this->reservation_date . "','" . $this->reservation_place . "','" . $this->reservation_heure . "','" . $this->reservation_traverse . "','" . $this->reservation_nomBateau . "')"); 
-    }   
-}     
-?>
 
 !>
 
@@ -86,10 +67,9 @@ $result=mysql_query($query);
 				      <nav id="nav-menu-container">
 				        <ul class="nav-menu">
 				          <li><a href="index.html">Accueil</a></li>
-				          <li><a href="reservation.html">Réservation</a></li>
+				          <li><a href="reservation1.php">Réservation</a></li>
 				          <li><a href="horaires.html">Horaires</a></li>
 				          <li><a href="tarifs.html">Tarifs</a></li>
-				          <li><a href="liaisons.html">Liaisons</a></li>
 				      </nav><!-- #nav-menu-container -->					      		  
 					</div>
 				</div>
@@ -114,6 +94,12 @@ $result=mysql_query($query);
 			<table style="width:100%">
 				<tr>
 					Séléctionner un secteur:
+						<tr>
+							<td class="cellule"><?php echo $total["nom"] ?></td>
+						</tr>
+					<?php
+					}
+					?>
 			  </table> 
 <!-- start footer Area -->		
 			<footer class="footer-area section-gap">
@@ -141,9 +127,6 @@ $result=mysql_query($query);
 										</ul>
 									</div>
 									<div class="col">
-										<ul>
-											<li><a href="#">Liaisons</a></li>
-										</ul>
 									</div>										
 								</div>							
 							</div>
