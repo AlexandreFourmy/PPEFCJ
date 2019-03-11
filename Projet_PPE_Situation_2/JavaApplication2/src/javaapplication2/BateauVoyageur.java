@@ -27,6 +27,9 @@ public class BateauVoyageur extends Bateau {
         return null;
     } 
     
+    public String getImageBatVoy(){
+        return imageBatVoy;          
+    }
     
     
 
