@@ -20,6 +20,7 @@
 								FROM utilisateur
 									WHERE username = :username
 										AND password = :password';
+
 				$reponse = $db->prepare($query);
 				$reponse->bindValue(':username', $username, PDO::PARAM_STR);
 				$reponse->bindValue(':password', $password, PDO::PARAM_STR);
@@ -36,6 +37,10 @@
 				}				
 				if ($nb_ligne > 0)
 				{
+					session_start();
+					$privilege = '	SELECT statut
+										FROM utilisateur
+											WHERE username=:username';
 					echo "<script type='text/javascript'>";
 					echo "alert('Vous êtes bien connecté(e)');";
 					echo "window.location.href='index.html';";
