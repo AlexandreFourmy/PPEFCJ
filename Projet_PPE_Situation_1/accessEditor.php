@@ -2,8 +2,8 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Connexion</title>
-		<link rel="stylesheet" href="css/styleLogin.css" />
+		<title>Access Editor</title>
+		<link rel="stylesheet" href="css/styleAdmin.css" />
 	</head>
 	<body>
 		<?php
@@ -19,11 +19,13 @@
 				$query = '	SELECT COUNT(id) AS nb
 								FROM utilisateur
 									WHERE username = :username
-										AND password = :password';
+										AND password = :password
+											AND statut = :statut';
 
 				$reponse = $db->prepare($query);
 				$reponse->bindValue(':username', $username, PDO::PARAM_STR);
 				$reponse->bindValue(':password', $password, PDO::PARAM_STR);
+				$reponse->bindValue(':statut', $statut, PDO::PARAM_STR);
 				$reponse->execute();
 				$reponse->bindColumn('nb', $nb_ligne, PDO::PARAM_INT);
 				$reponse->fetch(PDO::FETCH_BOUND);
@@ -35,13 +37,12 @@
 					echo "</script>";
 					$erreur_post = "1";
 				}				
-				if ($nb_ligne > 0)
+				if (($nb_ligne > 0)&&($statut=='admin'))
 				{
 					echo "<script type='text/javascript'>";
-					echo "alert('Vous êtes bien connecté(e)');";
+					echo "alert('Connexion validée');";
 					echo "window.location.href='index.html';";
 					echo "</script>";
-					
 				}
 			}
 			catch(PDOException $e)
@@ -53,7 +54,7 @@
 		{
 			?>
 			<div class="form">
-				<h1 id="title">Se connecter</h1>
+				<h1 id="title">Vérification Permissions</h1>
 				<form id="form" action="" method="post" name="login">
 					<input id="username" class="boxes" type="text" name="username" placeholder="Nom d'utilisateur" required />
 					<input id="password" class="boxes" type="password" name="password" placeholder="Mot de passe" required />

@@ -4507,7 +4507,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   position: absolute;
   background-color: grey;
   right:1%;
-  left:85%;
+  left:80%;
   height:30px;
   top:10px;
   opacity: 0.9;
