@@ -14,10 +14,19 @@ public class Bateau {
     private String idBat;
     private String nomBat;
     private double LongueurBat;
-    private double Largeurbat;
+    private double LargeurBat;
     
     public Bateau (String unId, String unNom, double uneLongueur, double uneLargeur){
+        this.
+        
         
     }
     
+    public String toString(){
+    System.out.println("Nom du bateau:" + nomBat);
+    System.out.println("Longueur:" + LongueurBat + "mètres");
+    System.out.println("Largeur:" + LargeurBat + "mètres");
+        return null;
+    } 
+
 }
