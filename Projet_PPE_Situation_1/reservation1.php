@@ -5,7 +5,7 @@
 	$db_name='marieteam';
 
 	try{
-		$db_conn= new PDO("mysql:host=($db_host);dbname=($db_name)", $db_user, $db_pass);
+		$db_conn= new PDO("mysql:host=localhost;dbname=($db_name)", $db_user, $db_pass);
 		$db_conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 	}catch(PDOException $e){
@@ -101,7 +101,8 @@
 			<!-- End banner Area -->	
 			<div class="row">
 			<?php
-				$stmt=$db_conn->prepare('select nom from secteur order by id desc');
+				$requete='select nom from secteur order by desc';
+				$stmt=$db_conn->prepare($requete);
 					$stmt->execute();
 					if($stmt->rowCount()>0)
 					{
