@@ -77,11 +77,26 @@
 				</div>
 			</section>
 			<!-- End banner Area -->	
-			
+			<?php
+				if(isset($_REQUEST['port']))
+				{
+					$db=new PDO('mysql:host=localhost; dbname=marieteam','root','');
+					
+					$port=$_POST['port'];
+					
+					$sql=$db->prepare("	INSERT INTO port(nom) VALUES(?)");
+					$sql->execute([$port]);
+					
+					echo "<script type='text/javascript'>";
+					echo "alert('Le nouveau port à bien été enregistré');";
+					echo "</script>";
+				}
+			?>
 			<div class="form">
 				<h1 id="editPort">Edition Port</h1>
 				<form id="formPort" action="" method="post" name="postPort">
 					<input id="port" class="boxes" type="text" name="port" placeholder="Nom du port" required />
+					<input id="submitPort" name="submitPort" type="submit" value="Ajouter" />
 				</form>
 			</div>
 
