@@ -12,12 +12,15 @@ package javaapplication2;
 public class Bateau {
     
     private String idBat;
-    private String nomBat;
-    private double LongueurBat;
-    private double LargeurBat;
+    String nomBat;
+    double LongueurBat;
+    double LargeurBat;
     
     public Bateau (String unId, String unNom, double uneLongueur, double uneLargeur){
-        this.
+        this.idBat = unId;
+        this.nomBat = unNom;
+        this.LongueurBat = uneLongueur;
+        this.LargeurBat = uneLargeur;       
         
         
     }

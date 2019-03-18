@@ -14,7 +14,7 @@ public class BateauVoyageur extends Bateau {
 
     public BateauVoyageur(double vitessebatVoy, String imageBatVoy, String unId, String unNom, double uneLongueur, double uneLargeur) {
         super(unId, unNom, uneLongueur, uneLargeur);
-        this.vitessebatVoy = vitessebatVoy;
+        this.vitesseBatVoy = vitessebatVoy;
         this.imageBatVoy = imageBatVoy;
     }
     
@@ -22,9 +22,8 @@ public class BateauVoyageur extends Bateau {
     System.out.println("Nom du bateau:" + nomBat);
     System.out.println("Longueur:" + LongueurBat + "mètres");
     System.out.println("Largeur:" + LargeurBat + "mètres");
-    System.out.println("Vitesse" + vitesseBatVoy + "noeuds");
-    System.out.println("");
-        return null;
+    System.out.println("Vitesse:" + vitesseBatVoy + "noeuds");
+    return null;
     } 
     
     public String getImageBatVoy(){
