@@ -19,13 +19,11 @@
 				$query = '	SELECT COUNT(id) AS nb
 								FROM utilisateur
 									WHERE username = :username
-										AND password = :password
-											AND statut = :statut';
+										AND password = :password';
 
 				$reponse = $db->prepare($query);
 				$reponse->bindValue(':username', $username, PDO::PARAM_STR);
 				$reponse->bindValue(':password', $password, PDO::PARAM_STR);
-				$reponse->bindValue(':statut', $statut, PDO::PARAM_STR);
 				$reponse->execute();
 				$reponse->bindColumn('nb', $nb_ligne, PDO::PARAM_INT);
 				$reponse->fetch(PDO::FETCH_BOUND);
@@ -37,12 +35,30 @@
 					echo "</script>";
 					$erreur_post = "1";
 				}				
-				if (($nb_ligne > 0)&&($statut=='admin'))
+				if ($nb_ligne > 0)
 				{
-					echo "<script type='text/javascript'>";
-					echo "alert('Connexion validée');";
-					echo "window.location.href='index.html';";
-					echo "</script>";
+					$query='SELECT statut AS stt
+								FROM utilisateur
+									WHERE username= :username';
+					$reponse=$db->prepare($query);
+					$reponse->bindValue(':username',$username,PDO::PARAM_STR);
+					$reponse->execute();
+					$reponse->bindColumn('stt',$statut,PDO::PARAM_STR);
+					$reponse->fetch(PDO::FETCH_BOUND);
+					if ($statut=='admin')
+					{
+						echo "<script type='text/javascript'>";
+						echo "alert('Connexion validée, Niveau de permission suffisant');";
+						echo "window.location.href='index.html';";
+						echo "</script>";
+					}
+					if ($statut=='user')
+					{
+						echo "<script type='text/javascript'>";
+						echo "alert('Niveau de permission insufisant, redirection sur le site');";
+						echo "window.location.href='index.html';";
+						echo "</script>";
+					}
 				}
 			}
 			catch(PDOException $e)
