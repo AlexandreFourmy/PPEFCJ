@@ -49,7 +49,7 @@
 					{
 						echo "<script type='text/javascript'>";
 						echo "alert('Connexion validée, Niveau de permission suffisant');";
-						echo "window.location.href='index.html';";
+						echo "window.location.href='Editor.php';";
 						echo "</script>";
 					}
 					if ($statut=='user')
