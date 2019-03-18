@@ -1,11 +1,19 @@
 <?php
-include_once('secteurs.php');
-$query="SELECT nom FROM secteur";
-$result=mysql_query($query);
-while($total = mysql_fetch_array($result))
-{
-	$val=$total["secteur"];
-}
+	$db_host='localhost';
+	$db_user='root';
+	$db_pass='';
+	$db_name='marieteam';
+
+	try{
+		$db_conn= new PDO("mysql:host=($db_host);dbname=($db_name)", $db_user, $db_pass);
+		$db_conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+	}catch(PDOException $e){
+		echo $e->getMessage();
+	}
+	
+
+
 ?>
 
 	<!DOCTYPE html>
@@ -91,16 +99,19 @@ while($total = mysql_fetch_array($result))
 				</div>
 			</section>
 			<!-- End banner Area -->	
-			<table style="width:100%">
-				<tr>
-					Séléctionner un secteur:
-						<tr>
-							<td class="cellule"><?php echo $total["nom"] ?></td>
-						</tr>
-					<?php
+			<div class="row">
+			<?php
+				$stmt=$db_conn->prepare('select nom from secteur order by id desc');
+					$stmt->execute();
+					if($stmt->rowCount()>0)
+					{
+						while($row->$stmt->fetch(PDO::FETCH_ASSOC))
+						{
+							extract($row);
+						}
 					}
-					?>
-			  </table> 
+			?>
+			</div>
 <!-- start footer Area -->		
 			<footer class="footer-area section-gap">
 				<div class="container">
