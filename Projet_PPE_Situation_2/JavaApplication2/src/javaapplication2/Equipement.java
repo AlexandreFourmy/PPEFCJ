@@ -21,8 +21,7 @@ public class Equipement {
     
     public String toString(){
         System.out.println("Le libellé de l'équipement est:" + libEquip);
-        return null;
-        
+        return null;        
     }
     
 }
