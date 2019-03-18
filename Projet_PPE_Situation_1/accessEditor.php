@@ -31,7 +31,7 @@
 				{
 					echo "<script type='text/javascript'>";
 					echo "alert('Le nom d\'utilisateur ou le mot de passe est incorrect');";
-					echo "window.location.href='signin.php';";
+					echo "window.location.href='accessEditor.php';";
 					echo "</script>";
 					$erreur_post = "1";
 				}				
