@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  lun. 18 mars 2019 à 10:15
--- Version du serveur :  5.7.19
--- Version de PHP :  5.6.31
+-- Généré le :  mar. 19 mars 2019 à 15:22
+-- Version du serveur :  5.7.24
+-- Version de PHP :  7.2.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -32,8 +32,19 @@ DROP TABLE IF EXISTS `bateau`;
 CREATE TABLE IF NOT EXISTS `bateau` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(15) NOT NULL,
+  `capaciteBateau` int(11) NOT NULL,
+  `categorieBateau` varchar(15) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `bateau`
+--
+
+INSERT INTO `bateau` (`id`, `nom`, `capaciteBateau`, `categorieBateau`) VALUES
+(1, 'MarnierXpress', 50, 'A'),
+(2, 'MediumBoat', 150, 'B'),
+(3, 'DeLuxoBoat', 350, 'C');
 
 -- --------------------------------------------------------
 
@@ -47,6 +58,15 @@ CREATE TABLE IF NOT EXISTS `categorie` (
   `libelle` varchar(15) NOT NULL,
   PRIMARY KEY (`lettre`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `categorie`
+--
+
+INSERT INTO `categorie` (`lettre`, `libelle`) VALUES
+('A', 'Petit'),
+('B', 'Moyen'),
+('C', 'Grand');
 
 -- --------------------------------------------------------
 
@@ -121,7 +141,18 @@ CREATE TABLE IF NOT EXISTS `port` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(15) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `port`
+--
+
+INSERT INTO `port` (`id`, `nom`) VALUES
+(1, 'Rotterdam'),
+(2, 'Anvers'),
+(3, 'Hambourg'),
+(4, 'Port Kelang'),
+(5, 'Singapour');
 
 -- --------------------------------------------------------
 
@@ -152,7 +183,16 @@ CREATE TABLE IF NOT EXISTS `secteur` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(15) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `secteur`
+--
+
+INSERT INTO `secteur` (`id`, `nom`) VALUES
+(1, 'A'),
+(2, 'B'),
+(3, 'C');
 
 -- --------------------------------------------------------
 
