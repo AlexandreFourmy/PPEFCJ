@@ -78,10 +78,9 @@
 			</section>
 			<!-- End banner Area -->	
 			<?php
+				$db=new PDO('mysql:host=localhost; dbname=marieteam','root','');
 				if(isset($_REQUEST['port']))
-				{
-					$db=new PDO('mysql:host=localhost; dbname=marieteam','root','');
-					
+				{					
 					$port=$_POST['port'];
 					
 					$sql=$db->prepare("	INSERT INTO port(nom) VALUES(?)");
@@ -99,7 +98,49 @@
 					<input id="submitPort" name="submitPort" type="submit" value="Ajouter" />
 				</form>
 			</div>
+			<div class="form">
+				<h1 id="editLiaison">Edition Liaison</h1>
+				<form id="formLiason" action="" method="post" name="postPort">
+					<label>Port de départ</label>
+					<select id="portDepart" name="portDepart" required>
+						<?php
+							//require_once 'php/Editor.php';
+							$sql2=$db->prepare("SELECT nom FROM port");
+							$sql2->execute();
+							$rows = $sql2->rowCount();
+							if ($rows != 0) {
+							for ($i = 1; $i <= $rows; $i++)
+							{
+								$data = $sql2->fetch();
+								echo '<option value="'.$data['id'].'">'.$data['nom'].'</option>';
+							}
+							}
+						?>
+					</select>
 
+					<table class="tableau">
+					<tr>
+					<th>ID</th>
+					<th>Nom</th>
+					</tr>
+					<?php
+					$sql3=$db->prepare("SELECT * FROM port");
+							$sql3->execute();
+							$rows = $sql2->rowCount();
+							if ($rows != 0) {
+							for ($i = 1; $i <= $rows; $i++)
+							{
+								$data = $sql3->fetch();
+?>
+							<tr>
+							<th> <?=$data['id'] ?> </th>
+							<th> <?=$data['nom'] ?> </th>
+							</tr>
+<?php
+							}
+							}
+					?>
+					</table>
 
 
 			<!-- start footer Area -->		
