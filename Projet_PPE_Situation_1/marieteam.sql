@@ -106,7 +106,7 @@ CREATE TABLE IF NOT EXISTS `enregistrer` (
 
 DROP TABLE IF EXISTS `liaison`;
 CREATE TABLE IF NOT EXISTS `liaison` (
-  `code` varchar(15) NOT NULL AUTO_INCREMENT,
+  `code` int(15) NOT NULL AUTO_INCREMENT,
   `distance` varchar(15) NOT NULL,
   `id` int(11) NOT NULL,
   `id_Port` int(11) NOT NULL,
