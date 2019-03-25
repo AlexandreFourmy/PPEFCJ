@@ -76,25 +76,43 @@
 					</div>
 				</div>
 			</section>
-			<!-- End banner Area -->	
+			<!-- End banner Area -->
 			<?php
+		
+		//Initialisation de la base de donnée dans $db
+		
 				$db=new PDO('mysql:host=localhost; dbname=marieteam','root','');
+		
+		//Script ajout de bateau
+		
 				if(isset($_REQUEST['port']))
 				{					
 					$port=$_POST['port'];
 					
-					$sql=$db->prepare("	INSERT INTO port(nom) VALUES(?)");
-					$sql->execute([$port]);
+					$sqlAjoutPort=$db->prepare("	INSERT INTO port(nom) VALUES(?)");
+					$sqlAjoutPort->execute([$port]);
 					
 					echo "<script type='text/javascript'>";
 					echo "alert('Le nouveau port à bien été enregistré');";
 					echo "</script>";
 				}
+				
+		//Script ajout de liaison
+				
 				if(isset($request['distance']))
 				{
 					$distance=$_POST['distance'];
+					$id=$_POST['secteur'];
+					$idPortDepart=$_POST['portDepart'];
+					$idPortArrivee=$_POST['portArrivee'];
 					
-					$sql4=$db->prepare("INSERT INTO");
+					
+					$sqlAjoutLiaison=$db->prepare("INSERT INTO liaison(distance(distance),id(secteur),id_Port(id_Port),id_Port_Arrivee(id_Port_Arrivee)) VALUES(?,?,?,?)");
+					$sqlAjoutLiaison=$db->execute([$distance,$id,$idPortDepart,$idPortArrivee]);
+					
+					echo "<script type='text/javascript'>";
+					echo "alert('Le nouvelle liaison à bien été enregistré');";
+					echo "</script>";
 				}
 			?>
 			<div class="form">
@@ -110,14 +128,14 @@
 					<label>Port de départ</label>
 					<select id="portDepart" name="portDepart">
 						<?php
-							$sql2=$db->prepare("SELECT nom FROM port");
-							$sql2->execute();
-							$rows = $sql2->rowCount();
+							$sqlPortDepart=$db->prepare("SELECT nom FROM port");
+							$sqlPortDepart->execute();
+							$rows = $sqlPortDepart->rowCount();
 							if ($rows != 0) {
 								for ($i = 1; $i <= $rows; $i++)
 								{
-									$data = $sql2->fetch();
-									echo '<option value="'.$data['id'].'">'.$data['nom'].'</option>';
+									$dataPortDepart = $sqlPortDepart->fetch();
+									echo '<option value="'.$dataPortDepart['id'].'">'.$dataPortDepart['nom'].'</option>';
 								}
 							}						
 						?>
@@ -125,19 +143,34 @@
 					<label>Port d'arrivé</label>
 					<select id="portArrive" name="portArrive">
 						<?php
-							$sql3=$db->prepare("SELECT nom FROM port");
-							$sql3->execute();
-							$rows = $sql3->rowCount();
-							if ($rows != 0) {
-								for ($i = 1; $i <= $rows; $i++)
+							$sqlPortArrivee=$db->prepare("SELECT nom FROM port");
+							$sqlPortArrivee->execute();
+							$rows2 = $sqlPortArrivee->rowCount();
+							if ($rows2 != 0) {
+								for ($i = 1; $i <= $rows2; $i++)
 								{
-									$data2 = $sql3->fetch();
-									echo '<option value="'.$data['id'].'">'.$data['nom'].'</option>';
+									$dataPortArrivee = $sqlPortArrivee->fetch();
+									echo '<option value="'.$dataPortArrviee['id'].'">'.$dataPortArrivee['nom'].'</option>';
 								}
 							}	
 						?>
 					</select>
 					<input id="distance" class="boxes" type="text" name="distance" placeholder="Distance de la liaison" required />
+					<label>Secteur</label>
+					<select id="secteur" name="secteur">
+						<?php
+							$sqlSecteur=$db->prepare("SELECT nom FROM secteur");
+							$sqlSecteur->execute();
+							$rows3 = $sqlSecteur->rowCount();
+							if ($rows3 != 0) {
+								for ($i = 1; $i <= $rows3; $i++)
+								{
+									$dataSecteur = $sqlSecteur->fetch();
+									echo '<option value="'.$dataSecteur['id'].'">'.$dataSecteur['nom'].'</option>';
+								}
+							}	
+						?>
+					</select>						
 					<input id="submitLiaison" name="submitLiaison" type="submit" value="Ajouter la liaison"
 					<table class="tableau">
 						<tr>
@@ -145,17 +178,17 @@
 							<th>Nom</th>
 						</tr>
 						<?php
-							$sql3=$db->prepare("SELECT * FROM port");
-							$sql3->execute();
-							$rows = $sql2->rowCount();
-							if ($rows != 0) {
-								for ($i = 1; $i <= $rows; $i++)
+							$sqlTabPort=$db->prepare("SELECT * FROM port");
+							$sqlTabPort->execute();
+							$rows4 = $sqlTabPort->rowCount();
+							if ($rows4 != 0) {
+								for ($i = 1; $i <= $rows4; $i++)
 								{
-									$data = $sql3->fetch();
+									$dataListPort = $sqlTabPort->fetch();
 									?>
 									<tr>
-										<th> <?=$data['id'] ?> </th>
-										<th> <?=$data['nom'] ?> </th>
+										<th> <?=$dataListPort['id'] ?> </th>
+										<th> <?=$dataListPort['nom'] ?> </th>
 									</tr>
 									<?php
 								}
@@ -204,9 +237,7 @@
 								</p>								
 								<div id="mc_embed_signup">
 									<form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="subscription relative">
-										<div class="input-group d-flex flex-row">
-											<input name="EMAIL" placeholder="Email Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email Address '" required="" type="email">
-											<button class="btn bb-btn"><span class="lnr lnr-location"></span></button>		
+										<div class="input-group d-flex flex-row">	
 										</div>									
 										<div class="mt-10 info"></div>
 									</form>
