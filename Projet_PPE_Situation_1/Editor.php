@@ -99,17 +99,15 @@
 				
 		//Script ajout de liaison
 				
-				if(isset($request['distance']))
+				if(isset($_REQUEST['distance']))
 				{
 					$distance=$_POST['distance'];
 					$id=$_POST['secteur'];
 					$idPortDepart=$_POST['portDepart'];
 					$idPortArrivee=$_POST['portArrivee'];
 					
-					
-					$sqlAjoutLiaison=$db->prepare("INSERT INTO liaison(distance(distance),id(secteur),id_Port(id_Port),id_Port_Arrivee(id_Port_Arrivee)) VALUES(?,?,?,?)");
-					$sqlAjoutLiaison=$db->execute([$distance,$id,$idPortDepart,$idPortArrivee]);
-					
+					$sqlAjoutLiaison=$db->prepare("INSERT INTO liaison(distance,id,id_Port,id_Port_Arrivee) VALUES(?,?,?,?)");
+					$sqlAjoutLiaison->execute([$distance,$id,$idPortDepart,$idPortArrivee]);
 					echo "<script type='text/javascript'>";
 					echo "alert('Le nouvelle liaison à bien été enregistré');";
 					echo "</script>";
@@ -141,7 +139,7 @@
 						?>
 					</select>
 					<label>Port d'arrivé</label>
-					<select id="portArrive" name="portArrive">
+					<select id="portArrivee" name="portArrivee">
 						<?php
 							$sqlPortArrivee=$db->prepare("SELECT nom FROM port");
 							$sqlPortArrivee->execute();
