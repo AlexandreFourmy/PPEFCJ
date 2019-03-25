@@ -310,12 +310,6 @@ ALTER TABLE `tarifier`
   ADD CONSTRAINT `Tarifier_Type1_FK` FOREIGN KEY (`num`) REFERENCES `type` (`num`);
 
 --
--- Contraintes pour la table `traversee`
---
-ALTER TABLE `traversee`
-  ADD CONSTRAINT `Traversee_Liaison_FK` FOREIGN KEY (`code`) REFERENCES `liaison` (`code`);
-
---
 -- Contraintes pour la table `type`
 --
 ALTER TABLE `type`
