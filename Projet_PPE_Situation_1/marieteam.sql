@@ -306,7 +306,6 @@ ALTER TABLE `reservation`
 -- Contraintes pour la table `tarifier`
 --
 ALTER TABLE `tarifier`
-  ADD CONSTRAINT `Tarifier_Liaison_FK` FOREIGN KEY (`code`) REFERENCES `liaison` (`code`),
   ADD CONSTRAINT `Tarifier_Periode0_FK` FOREIGN KEY (`dateDeb`) REFERENCES `periode` (`dateDeb`),
   ADD CONSTRAINT `Tarifier_Type1_FK` FOREIGN KEY (`num`) REFERENCES `type` (`num`);
 
