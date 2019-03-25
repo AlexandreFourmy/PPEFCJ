@@ -90,6 +90,12 @@
 					echo "alert('Le nouveau port à bien été enregistré');";
 					echo "</script>";
 				}
+				if(isset($request['distance']))
+				{
+					$distance=$_POST['distance'];
+					
+					$sql4=$db->prepare("INSERT INTO");
+				}
 			?>
 			<div class="form">
 				<h1 id="editPort">Edition Port</h1>
@@ -102,44 +108,59 @@
 				<h1 id="editLiaison">Edition Liaison</h1>
 				<form id="formLiason" action="" method="post" name="postPort">
 					<label>Port de départ</label>
-					<select id="portDepart" name="portDepart" required>
+					<select id="portDepart" name="portDepart">
 						<?php
-							//require_once 'php/Editor.php';
 							$sql2=$db->prepare("SELECT nom FROM port");
 							$sql2->execute();
 							$rows = $sql2->rowCount();
 							if ($rows != 0) {
-							for ($i = 1; $i <= $rows; $i++)
-							{
-								$data = $sql2->fetch();
-								echo '<option value="'.$data['id'].'">'.$data['nom'].'</option>';
-							}
-							}
+								for ($i = 1; $i <= $rows; $i++)
+								{
+									$data = $sql2->fetch();
+									echo '<option value="'.$data['id'].'">'.$data['nom'].'</option>';
+								}
+							}						
 						?>
 					</select>
-
+					<label>Port d'arrivé</label>
+					<select id="portArrive" name="portArrive">
+						<?php
+							$sql3=$db->prepare("SELECT nom FROM port");
+							$sql3->execute();
+							$rows = $sql3->rowCount();
+							if ($rows != 0) {
+								for ($i = 1; $i <= $rows; $i++)
+								{
+									$data2 = $sql3->fetch();
+									echo '<option value="'.$data['id'].'">'.$data['nom'].'</option>';
+								}
+							}	
+						?>
+					</select>
+					<input id="distance" class="boxes" type="text" name="distance" placeholder="Distance de la liaison" required />
+					<input id="submitLiaison" name="submitLiaison" type="submit" value="Ajouter la liaison"
 					<table class="tableau">
-					<tr>
-					<th>ID</th>
-					<th>Nom</th>
-					</tr>
-					<?php
-					$sql3=$db->prepare("SELECT * FROM port");
+						<tr>
+							<th>ID</th>
+							<th>Nom</th>
+						</tr>
+						<?php
+							$sql3=$db->prepare("SELECT * FROM port");
 							$sql3->execute();
 							$rows = $sql2->rowCount();
 							if ($rows != 0) {
-							for ($i = 1; $i <= $rows; $i++)
-							{
-								$data = $sql3->fetch();
-?>
-							<tr>
-							<th> <?=$data['id'] ?> </th>
-							<th> <?=$data['nom'] ?> </th>
-							</tr>
-<?php
+								for ($i = 1; $i <= $rows; $i++)
+								{
+									$data = $sql3->fetch();
+									?>
+									<tr>
+										<th> <?=$data['id'] ?> </th>
+										<th> <?=$data['nom'] ?> </th>
+									</tr>
+									<?php
+								}
 							}
-							}
-					?>
+						?>
 					</table>
 
 
