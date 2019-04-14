@@ -108,12 +108,12 @@ DROP TABLE IF EXISTS `liaison`;
 CREATE TABLE IF NOT EXISTS `liaison` (
   `code` int(15) NOT NULL AUTO_INCREMENT,
   `distance` varchar(15) NOT NULL,
-  `id` int(11) NOT NULL,
-  `id_Port` int(11) NOT NULL,
+  `id_Secteur` int(11) NOT NULL,
+  `id_Port_Depart` int(11) NOT NULL,
   `id_Port_Arrivee` int(11) NOT NULL,
   PRIMARY KEY (`code`),
-  KEY `Liaison_Secteur_FK` (`id`),
-  KEY `Liaison_Port0_FK` (`id_Port`),
+  KEY `Liaison_Secteur_FK` (`id_Secteur`),
+  KEY `Liaison_Port0_FK` (`id_Port_Depart`),
   KEY `Liaison_Port1_FK` (`id_Port_Arrivee`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -292,9 +292,9 @@ ALTER TABLE `enregistrer`
 -- Contraintes pour la table `liaison`
 --
 ALTER TABLE `liaison`
-  ADD CONSTRAINT `Liaison_Port0_FK` FOREIGN KEY (`id_Port`) REFERENCES `port` (`id`),
+  ADD CONSTRAINT `Liaison_Port0_FK` FOREIGN KEY (`id_Port_Depart`) REFERENCES `port` (`id`),
   ADD CONSTRAINT `Liaison_Port1_FK` FOREIGN KEY (`id_Port_Arrivee`) REFERENCES `port` (`id`),
-  ADD CONSTRAINT `Liaison_Secteur_FK` FOREIGN KEY (`id`) REFERENCES `secteur` (`id`);
+  ADD CONSTRAINT `Liaison_Secteur_FK` FOREIGN KEY (`id_Secteur`) REFERENCES `secteur` (`id`);
 
 --
 -- Contraintes pour la table `reservation`

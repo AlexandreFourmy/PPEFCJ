@@ -83,7 +83,7 @@
 		
 				$db=new PDO('mysql:host=localhost; dbname=marieteam','root','');
 		
-		//Script ajout de bateau
+		//Script ajout de port
 		
 				if(isset($_REQUEST['port']))
 				{					
@@ -99,19 +99,7 @@
 				
 		//Script ajout de liaison
 				
-				if(isset($_REQUEST['distance']))
-				{
-					$distance=$_POST['distance'];
-					$id=$_POST['secteur'];
-					$idPortDepart=$_POST['portDepart'];
-					$idPortArrivee=$_POST['portArrivee'];
-					
-					$sqlAjoutLiaison=$db->prepare("INSERT INTO liaison(distance,id,id_Port,id_Port_Arrivee) VALUES(?,?,?,?)");
-					$sqlAjoutLiaison->execute([$distance,$id,$idPortDepart,$idPortArrivee]);
-					echo "<script type='text/javascript'>";
-					echo "alert('Le nouvelle liaison à bien été enregistré');";
-					echo "</script>";
-				}
+
 			?>
 			<div class="form">
 				<h1 id="editPort">Edition Port</h1>
@@ -126,29 +114,26 @@
 					<label>Port de départ</label>
 					<select id="portDepart" name="portDepart">
 						<?php
-							$sqlPortDepart=$db->prepare("SELECT nom FROM port");
-							$sqlPortDepart->execute();
+							$sqlPortDepart=$db->query("SELECT * FROM port");
 							$rows = $sqlPortDepart->rowCount();
 							if ($rows != 0) {
-								for ($i = 1; $i <= $rows; $i++)
-								{
-									$dataPortDepart = $sqlPortDepart->fetch();
-									echo '<option value="'.$dataPortDepart['id'].'">'.$dataPortDepart['nom'].'</option>';
-								}
-							}						
+                                for ($i = 1; $i <= $rows; $i++) {
+                                    $dataPortDepart = $sqlPortDepart->fetch();
+                                    echo '<option value="' . $dataPortDepart['id'] . '">' . $dataPortDepart['nom'] . '</option>';
+                                }
+                            }
 						?>
 					</select>
 					<label>Port d'arrivé</label>
 					<select id="portArrivee" name="portArrivee">
 						<?php
-							$sqlPortArrivee=$db->prepare("SELECT nom FROM port");
-							$sqlPortArrivee->execute();
+							$sqlPortArrivee=$db->query("SELECT * FROM port");
 							$rows2 = $sqlPortArrivee->rowCount();
 							if ($rows2 != 0) {
 								for ($i = 1; $i <= $rows2; $i++)
 								{
 									$dataPortArrivee = $sqlPortArrivee->fetch();
-									echo '<option value="'.$dataPortArrviee['id'].'">'.$dataPortArrivee['nom'].'</option>';
+									echo '<option value="'.$dataPortArrivee['id'].'">'.$dataPortArrivee['nom'].'</option>';
 								}
 							}	
 						?>
@@ -157,19 +142,27 @@
 					<label>Secteur</label>
 					<select id="secteur" name="secteur">
 						<?php
-							$sqlSecteur=$db->prepare("SELECT nom FROM secteur");
-							$sqlSecteur->execute();
+							$sqlSecteur=$db->query("SELECT * FROM secteur");
 							$rows3 = $sqlSecteur->rowCount();
 							if ($rows3 != 0) {
-								for ($i = 1; $i <= $rows3; $i++)
-								{
-									$dataSecteur = $sqlSecteur->fetch();
-									echo '<option value="'.$dataSecteur['id'].'">'.$dataSecteur['nom'].'</option>';
-								}
-							}	
+                            while ($dataSecteur = $sqlSecteur->fetch()) {
+                                echo '<option value="' . $dataSecteur['id'] . '">' . $dataSecteur['nom'] . '</option>';
+                            }
+                        }
 						?>
-					</select>						
-					<input id="submitLiaison" name="submitLiaison" type="submit" value="Ajouter la liaison"
+					</select>
+					<input id="submitLiaison" name="submitLiaison" type="submit" value="Ajouter la liaison"/>
+                    <?php
+                    if(isset($_POST['portDepart']))
+                    {
+                    $distance=$_POST['distance'];
+                    $secteur=$_POST['secteur'];
+                    $portDepart=$_POST['portDepart'];
+                    $portArrivee=$_POST['portArrivee'];
+                    $sqlAjoutLiaison=$db->prepare("INSERT INTO liaison(distance,id_Secteur,id_Port_Depart,id_Port_Arrivee) VALUES(?,?,?,?)");
+                    $sqlAjoutLiaison->execute([$distance,$secteur,$portDepart,$portArrivee]);
+                    }
+                    ?>
 					<table class="tableau">
 						<tr>
 							<th>ID</th>
