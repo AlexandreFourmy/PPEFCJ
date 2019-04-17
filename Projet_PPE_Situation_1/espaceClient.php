@@ -95,6 +95,49 @@
 				</div>
 			</section>
 			<!-- End banner Area -->
+
+            <div class="form">
+                <h2 id="title">Choisissez un secteur</h2>
+                <form id="formSecteur" action="" method="post" name="postPort">
+                        <select id="secteur" name="secteur">
+                        <?php
+                        $sqlSecteur=$db->query("SELECT * FROM secteur");
+                        $rows = $sqlSecteur->rowCount();
+                        if ($rows != 0) {
+                            for ($i = 1; $i <= $rows; $i++) {
+                                $dataSecteur = $sqlSecteur->fetch();
+                                echo '<option value="' . $dataSecteur['id'] . '">' . $dataSecteur['nom'] . '</option>';
+                            }
+                        }
+                        ?>
+                    </select>
+                    <input id="submitSecteur" name="submitSecteur" type="submit" value="Valider le secteur"/>
+                </form>
+            </div>
+            <table class="tableau">
+                <tr>
+                    <th>ID</th>
+                    <th>Nom</th>
+                </tr>
+                <?php
+                $selectedSecteur=$_POST['secteur'];
+                $sqlLiaison=$db->query("SELECT * FROM liaison WHERE id_Secteur = $selectedSecteur ");
+                $rows1 = $sqlLiaison->rowCount();
+                if ($rows1 != 0) {
+                    for ($i = 1; $i <= $rows1; $i++)
+                    {
+                        $dataLiaison = $sqlLiaison->fetch();
+                        ?>
+                        <tr>
+                            <th> <?=$dataLiaison['id_Port_Depart'] ?> </th>
+                            <th> <?=$dataLiaison['id_Port_Arrivee'] ?> </th>
+                            <th> <?=$dataLiaison['distance'] ?> </th>
+                        </tr>
+                        <?php
+                    }
+                }
+                ?>
+            </table>
 <!-- start footer Area -->		
 			<footer class="footer-area section-gap">
 				<div class="container">
