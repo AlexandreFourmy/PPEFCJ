@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mar. 19 mars 2019 à 15:22
--- Version du serveur :  5.7.24
--- Version de PHP :  7.2.14
+-- Généré le :  mar. 16 avr. 2019 à 08:24
+-- Version du serveur :  5.7.23
+-- Version de PHP :  7.2.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -115,7 +115,25 @@ CREATE TABLE IF NOT EXISTS `liaison` (
   KEY `Liaison_Secteur_FK` (`id_Secteur`),
   KEY `Liaison_Port0_FK` (`id_Port_Depart`),
   KEY `Liaison_Port1_FK` (`id_Port_Arrivee`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `liaison`
+--
+
+INSERT INTO `liaison` (`code`, `distance`, `id_Secteur`, `id_Port_Depart`, `id_Port_Arrivee`) VALUES
+(1, '6.4', 1, 6, 7),
+(2, '6.4', 1, 7, 6),
+(3, '9.4', 1, 8, 9),
+(4, '4.9', 1, 9, 10),
+(5, '12.8', 1, 10, 8),
+(6, '23.4', 1, 11, 6),
+(7, '23.4', 1, 6, 11),
+(9, '43.6', 2, 1, 2),
+(10, '43.6', 2, 2, 1),
+(11, '25.3', 3, 3, 4),
+(12, '8.7', 3, 4, 5),
+(13, '35.1', 3, 5, 3);
 
 -- --------------------------------------------------------
 
@@ -141,7 +159,7 @@ CREATE TABLE IF NOT EXISTS `port` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(15) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `port`
@@ -152,7 +170,13 @@ INSERT INTO `port` (`id`, `nom`) VALUES
 (2, 'Anvers'),
 (3, 'Hambourg'),
 (4, 'Port Kelang'),
-(5, 'Singapour');
+(5, 'Singapour'),
+(6, 'La Maison'),
+(7, 'Le Jardin'),
+(8, 'Les Champs'),
+(9, 'La Montagne'),
+(10, 'La Plaine'),
+(11, 'La Place');
 
 -- --------------------------------------------------------
 
@@ -258,7 +282,7 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   `password` varchar(255) NOT NULL,
   `statut` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `utilisateur`
