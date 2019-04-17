@@ -114,10 +114,13 @@
                     <input id="submitSecteur" name="submitSecteur" type="submit" value="Valider le secteur"/>
                 </form>
             </div>
+            <div class="tableau">
+                <h2>Secteur : <?php echo $_POST['secteur'] ?></h2>
             <table class="tableau">
                 <tr>
-                    <th>ID</th>
-                    <th>Nom</th>
+                    <th>Port_Depart</th>
+                    <th>Port_Arrivee</th>
+                    <th>Distance en miles</th>
                 </tr>
                 <?php
                 $selectedSecteur=$_POST['secteur'];
@@ -138,6 +141,7 @@
                 }
                 ?>
             </table>
+            </div>
 <!-- start footer Area -->		
 			<footer class="footer-area section-gap">
 				<div class="container">

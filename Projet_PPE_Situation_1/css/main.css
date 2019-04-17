@@ -4514,3 +4514,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   border:solid 1px black;
   border-radius:10px;
 }
+
+.tableau{
+  border:solid 1px black;
+}

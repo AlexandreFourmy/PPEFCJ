@@ -31,8 +31,17 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/espaceClient.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="603">
-              <caret line="123" column="71" selection-start-line="123" selection-start-column="71" selection-end-line="123" selection-end-column="71" />
+            <state relative-caret-position="314">
+              <caret line="117" column="41" selection-start-line="117" selection-start-column="41" selection-end-line="117" selection-end-column="77" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/css/main.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="773">
+              <caret line="4519" column="1" lean-forward="true" selection-start-line="4519" selection-start-column="1" selection-end-line="4519" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -63,6 +72,7 @@
         <option value="$PROJECT_DIR$/../testComboBox.php" />
         <option value="$PROJECT_DIR$/Editor.php" />
         <option value="$PROJECT_DIR$/Reservation.php" />
+        <option value="$PROJECT_DIR$/css/main.css" />
         <option value="$PROJECT_DIR$/espaceClient.php" />
       </list>
     </option>
@@ -85,6 +95,11 @@
             <path>
               <item name="Projet_PPE_Situation_1" type="b2602c69:ProjectViewProjectNode" />
               <item name="Projet_PPE_Situation_1" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Projet_PPE_Situation_1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Projet_PPE_Situation_1" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -127,12 +142,12 @@
       <workItem from="1555228110517" duration="909000" />
       <workItem from="1555402037905" duration="1104000" />
       <workItem from="1555403317983" duration="782000" />
-      <workItem from="1555487239667" duration="2161000" />
+      <workItem from="1555487239667" duration="3947000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15886000" />
+    <option name="totallyTimeSpent" value="17672000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -172,13 +187,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../testComboBox.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="56" selection-start-line="8" selection-start-column="56" selection-end-line="8" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Reservation.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
@@ -193,10 +201,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../testComboBox.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="56" selection-start-line="8" selection-start-column="56" selection-end-line="8" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="773">
+          <caret line="4519" column="1" lean-forward="true" selection-start-line="4519" selection-start-column="1" selection-end-line="4519" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/espaceClient.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="603">
-          <caret line="123" column="71" selection-start-line="123" selection-start-column="71" selection-end-line="123" selection-end-column="71" />
+        <state relative-caret-position="314">
+          <caret line="117" column="41" selection-start-line="117" selection-start-column="41" selection-end-line="117" selection-end-column="77" />
         </state>
       </provider>
     </entry>
