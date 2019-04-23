@@ -96,10 +96,9 @@
 			</section>
 			<!-- End banner Area -->
 
-            <div class="form">
+            <div class="divCommun">
                 <h2 id="title">Choisissez un secteur</h2>
-                <form id="formSecteur" action="" method="post" name="postPort">
-                        <select id="secteur" name="secteur">
+                        <select id="secteur" name="secteur" onchange="document.getElementById('secteur').value=this.options[this.selectedIndex].text">
                         <?php
                         $sqlSecteur=$db->query("SELECT * FROM secteur");
                         $rows = $sqlSecteur->rowCount();
@@ -110,11 +109,10 @@
                             }
                         }
                         ?>
+						<input type="hidden" name="secteur" id="secteur" value="" />
                     </select>
-                    <input id="submitSecteur" name="submitSecteur" type="submit" value="Valider le secteur"/>
-                </form>
             </div>
-            <div class="tableau">
+            <div class="divCommun">
                 <h2>Secteur : <?php echo $_POST['secteur'] ?></h2>
             <table class="tableau">
                 <tr>
@@ -123,8 +121,7 @@
                     <th>Distance en miles</th>
                 </tr>
                 <?php
-                $selectedSecteur=$_POST['secteur'];
-                $sqlLiaison=$db->query("SELECT * FROM liaison WHERE id_Secteur = $selectedSecteur ");
+                $sqlLiaison=$db->query("SELECT * FROM liaison WHERE id_Secteur = $_POST['secteur'] ");
                 $rows1 = $sqlLiaison->rowCount();
                 if ($rows1 != 0) {
                     for ($i = 1; $i <= $rows1; $i++)
@@ -189,18 +186,6 @@
 								</div>
 							</div>
 						</div>			
-					</div>
-
-					<div class="row footer-bottom d-flex justify-content-between align-items-center">
-						<p class="col-lg-8 col-sm-12 footer-text m-0"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-						<div class="col-lg-4 col-sm-12 footer-social">
-							<a href="#"><i class="fa fa-facebook"></i></a>
-							<a href="#"><i class="fa fa-twitter"></i></a>
-							<a href="#"><i class="fa fa-dribbble"></i></a>
-							<a href="#"><i class="fa fa-behance"></i></a>
-						</div>
 					</div>
 				</div>
 			</footer>
