@@ -113,7 +113,7 @@
                     </select>
             </div>
             <div class="divCommun">
-                <h2>Secteur : <?php echo $_POST['secteur'] ?></h2>
+                <h2>Secteur : <?php $idSecteur=1; echo $idSecteur ?></h2>
             <table class="tableau">
                 <tr>
                     <th>Port_Depart</th>
@@ -121,7 +121,7 @@
                     <th>Distance en miles</th>
                 </tr>
                 <?php
-                $sqlLiaison=$db->query("SELECT * FROM liaison WHERE id_Secteur = $_POST['secteur'] ");
+                $sqlLiaison=$db->query("SELECT * FROM liaison WHERE id_Secteur = $idSecteur ");
                 $rows1 = $sqlLiaison->rowCount();
                 if ($rows1 != 0) {
                     for ($i = 1; $i <= $rows1; $i++)
