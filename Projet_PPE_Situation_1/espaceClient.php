@@ -96,9 +96,10 @@
 			</section>
 			<!-- End banner Area -->
 
-            <div class="divCommun">
+            <div class="form">
                 <h2 id="title">Choisissez un secteur</h2>
-                        <select id="secteur" name="secteur" onchange="document.getElementById('secteur').value=this.options[this.selectedIndex].text">
+                <form id="formSecteur" action="" method="post" name="postPort">
+                        <select id="secteur" name="secteur">
                         <?php
                         $sqlSecteur=$db->query("SELECT * FROM secteur");
                         $rows = $sqlSecteur->rowCount();
@@ -109,15 +110,16 @@
                             }
                         }
                         ?>
-						<input type="hidden" name="secteur" id="secteur" value="" />
                     </select>
+                    <input id="submitSecteur" name="submitSecteur" type="submit" value="Valider le secteur"/>
+                </form>
             </div>
             <div class="divCommun">
-                <h2>Secteur : <?php $idSecteur=1; echo $idSecteur ?></h2>
+                <h2>Secteur : <?php echo $_POST['secteur'];$idSecteur=$_POST['secteur'] ?></h2>
             <table class="tableau">
                 <tr>
-                    <th>Port_Depart</th>
-                    <th>Port_Arrivee</th>
+                    <th>Id_Port_Depart</th>
+                    <th>Id_Port_Arrivee</th>
                     <th>Distance en miles</th>
                 </tr>
                 <?php
