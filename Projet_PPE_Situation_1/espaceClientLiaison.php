@@ -1,4 +1,5 @@
 <?php
+
 	try{
         $db=new PDO('mysql:host=localhost; dbname=marieteam','root','');
 		$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -6,6 +7,9 @@
 	}catch(PDOException $e){
 		echo $e->getMessage();
 	}
+	
+
+
 ?>
 
 	<!DOCTYPE html>
@@ -67,7 +71,7 @@
 				      <nav id="nav-menu-container">
 				        <ul class="nav-menu">
 				          <li><a href="index.html">Accueil</a></li>
-				          <li><a href="reservation1.php">Réservation</a></li>
+				          <li><a href="espaceClient.php">Réservation</a></li>
 				      </nav><!-- #nav-menu-container -->					      		  
 					</div>
 				</div>
@@ -89,80 +93,14 @@
 				</div>
 			</section>
 			<!-- End banner Area -->
-
-            <div class="form">
-                <h2 id="title">Choisissez un secteur</h2>
-                <form id="formSecteur" action="" method="post" name="postSecteur" action="espaceClientLiaison.php">
-                    <select id="secteur" name="secteur">
-						<?php
-                        	$sqlSecteur=$db->query("SELECT * FROM secteur");
-                        	$rows = $sqlSecteur->rowCount();
-                        	if ($rows != 0) {
-                            	for ($i = 1; $i <= $rows; $i++) {
-                                	$dataSecteur = $sqlSecteur->fetch();
-                                	echo '<option value="' . $dataSecteur['id'] . '">' . $dataSecteur['nom'] . '</option>';
-                            	}
-                        	}
-                        ?>
-                    </select>
-                    <input id="submitSecteur" name="submitSecteur" type="submit" value="Valider le secteur"/>
-                </form>
-				<div class="divCommun">
-                <h2>Secteur : 
-					<?php
-						if ($_POST['secteur'] === null){
-							$idSecteur=1;
-						}
-						else{
-							$idSecteur=$_POST['secteur'];
-						}
-						echo $idSecteur;
-					?>
-				</h2>
-            	<table class="tableau">
-                	<tr>
-                    	<th>Id_Port_Depart</th>
-                    	<th>Id_Port_Arrivee</th>
-                    	<th>Distance en miles</th>
-                	</tr>
-                	<?php
-                		$sqlLiaison=$db->query("SELECT * FROM liaison WHERE id_Secteur = $idSecteur ");
-                		$rows1 = $sqlLiaison->rowCount();
-                		if ($rows1 != 0) {
-                    		for ($i = 1; $i <= $rows1; $i++)
-                    		{
-                        		$dataLiaison = $sqlLiaison->fetch();
-                        		?>
-                        		<tr>
-                            		<th> <?=$dataLiaison['id_Port_Depart'] ?> </th>
-                            		<th> <?=$dataLiaison['id_Port_Arrivee'] ?> </th>
-                            		<th> <?=$dataLiaison['distance'] ?> </th>
-                        		</tr>
-                        		<?php
-                    		}
-                		}
-                	?>
-            	</table>
-				<h2>Selectionner liaison</h2>
-				<form id="formLaison" action="" method="post" name="postLiaison">
-					<select id="liaison" name="liaison">
-						<?php
-							$sqlLiaisonSelect=$db->query("SELECT * FROM  liaison WHERE id_Secteur = $idSecteur");
-							$rows2 = $sqlLiaisonSelect->rowCount();
-							if($rows2 != 0){
-								for($i  =1; $i <= $rows2; $i++){
-									$dataLiaisonSelect=$sqlLiaisonSelect->fetch();
-									echo '<option value="' . $dataLiaisonSelect['code'] . '">' . $dataLiaisonSelect['id_Port_Depart'] . " | " . $dataLiaisonSelect['id_Port_Arrivee'] . '</option>';
-								}
-							}
-						?>
-					</select>
-					<input id="submitLiaison" name="submitLiaison" type="submit" value="Valider la liaison"/>
-				</form>
+			<div class="divCommun">
+				<h2>Liaison sélectionnée : <?php echo $_POST['liaison'] ; $codeLiaison=$_POST['liaison'] ?></h2>
+				<h2> Tarifs pour la liaison selectionnée</h2>
 			</div>
 <!-- start footer Area -->		
 			<footer class="footer-area section-gap">
 				<div class="container">
+
 					<div class="row">
 						<div class="col-lg-3  col-md-6 col-sm-6">
 							<div class="single-footer-widget">
