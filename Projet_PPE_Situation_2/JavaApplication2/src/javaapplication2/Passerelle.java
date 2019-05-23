@@ -7,12 +7,12 @@ package javaapplication2;
 
 /**
  *
- * @author julien.dussart
+ * @author julie
  */
-public class JeuEnregistrement {
+public class Passerelle {
     
-    public JeuEnregistrement(String chaineSQL) {
+    public chargerLesEquipements(int unIdBateau){
+        
     }
     
-    public 
 }
