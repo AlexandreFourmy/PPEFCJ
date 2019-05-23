@@ -92,7 +92,7 @@
 
             <div class="form">
                 <h2 id="title">Choisissez un secteur</h2>
-                <form id="formSecteur" action="" method="post" name="postSecteur" action="espaceClientLiaison.php">
+                <form id="formSecteur" action="" method="post" name="postSecteur" action="espaceClient.php">
                     <select id="secteur" name="secteur">
 						<?php
                         	$sqlSecteur=$db->query("SELECT * FROM secteur");
@@ -144,7 +144,7 @@
                 	?>
             	</table>
 				<h2>Selectionner liaison</h2>
-				<form id="formLaison" action="" method="post" name="postLiaison">
+				<form id="formLaison" action="" method="post" name="postLiaison" action="espaceClientLiaison.php">
 					<select id="liaison" name="liaison">
 						<?php
 							$sqlLiaisonSelect=$db->query("SELECT * FROM  liaison WHERE id_Secteur = $idSecteur");
@@ -157,7 +157,7 @@
 							}
 						?>
 					</select>
-					<input id="submitLiaison" name="submitLiaison" type="submit" value="Valider la liaison"/>
+					<input id="submitLiaison" name="submitLiaison" type="submit" value="Valider la liaison" />
 				</form>
 			</div>
 <!-- start footer Area -->		
